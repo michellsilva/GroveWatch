@@ -10,3 +10,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Go CLI (`grovewatch`) with four subcommands:
   - `scan` — walk a workspace and emit a deterministic provenance snapshot
+    (files, toolchain, environment) as JSON, with per-file SHA-256 digests,
+    a Merkle root over all files, and a canonical snapshot digest.
