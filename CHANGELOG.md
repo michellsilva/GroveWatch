@@ -18,3 +18,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - `version` — print the tool version.
 - Deterministic serialization: identical inputs yield an identical canonical
   digest, independent of filesystem traversal order or capture time.
+- Environment values are hashed (never stored verbatim) to avoid leaking
+  secrets while still detecting change.
