@@ -16,3 +16,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
     exiting non-zero when drift is present (CI-gate friendly).
   - `verify` — recompute a snapshot's canonical digest and detect tampering.
   - `version` — print the tool version.
+- Deterministic serialization: identical inputs yield an identical canonical
+  digest, independent of filesystem traversal order or capture time.
