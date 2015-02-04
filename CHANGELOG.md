@@ -20,3 +20,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   digest, independent of filesystem traversal order or capture time.
 - Environment values are hashed (never stored verbatim) to avoid leaking
   secrets while still detecting change.
+- Zero-dependency TypeScript browser viewer that renders a bundled report:
+  stats, a nested file tree with size roll-ups, a toolchain table, and an
