@@ -22,3 +22,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   secrets while still detecting change.
 - Zero-dependency TypeScript browser viewer that renders a bundled report:
   stats, a nested file tree with size roll-ups, a toolchain table, and an
+  environment table. XSS-safe (textContent only), works from `file://` via an
+  inline report block.
