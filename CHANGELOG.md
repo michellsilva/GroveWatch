@@ -24,3 +24,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   stats, a nested file tree with size roll-ups, a toolchain table, and an
   environment table. XSS-safe (textContent only), works from `file://` via an
   inline report block.
+- Sample mixed-language workspace and a curated, verified sample report.
+- Documentation: `README.md` with Mermaid diagrams and a demo, and
