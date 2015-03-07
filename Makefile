@@ -8,3 +8,7 @@ PKG        := ./...
 SAMPLE_WS  := examples/sample-workspace
 REPORT     := examples/report/provenance.json
 VERSION    := 0.1.0
+
+.PHONY: all build test vet fmt clean \
+        viewer viewer-build viewer-test viewer-typecheck \
+        report verify demo ci help
