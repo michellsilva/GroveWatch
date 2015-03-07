@@ -12,3 +12,7 @@ VERSION    := 0.1.0
 .PHONY: all build test vet fmt clean \
         viewer viewer-build viewer-test viewer-typecheck \
         report verify demo ci help
+
+all: build viewer-build ## Build the CLI and the viewer
+
+help: ## Show this help
