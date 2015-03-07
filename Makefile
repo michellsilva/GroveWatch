@@ -16,3 +16,7 @@ VERSION    := 0.1.0
 all: build viewer-build ## Build the CLI and the viewer
 
 help: ## Show this help
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
+		awk 'BEGIN {FS = ":.*?## "}; {printf "  %-18s %s\n", $$1, $$2}'
+
+## ---- Go ----
