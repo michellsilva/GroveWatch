@@ -20,3 +20,7 @@ help: ## Show this help
 		awk 'BEGIN {FS = ":.*?## "}; {printf "  %-18s %s\n", $$1, $$2}'
 
 ## ---- Go ----
+
+build: ## Compile the grovewatch CLI to bin/
+	@mkdir -p bin
+	go build -ldflags "-X main.version=$(VERSION)" -o $(BIN) ./cmd/grovewatch
