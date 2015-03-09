@@ -28,3 +28,7 @@ build: ## Compile the grovewatch CLI to bin/
 test: ## Run Go tests
 	go test $(PKG)
 
+vet: ## Run go vet
+	go vet $(PKG)
+
+fmt: ## Format Go sources
