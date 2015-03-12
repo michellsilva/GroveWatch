@@ -40,3 +40,6 @@ report: build ## Regenerate the sample provenance report
 	$(BIN) scan -out $(REPORT) $(SAMPLE_WS)
 
 verify: build ## Verify the sample report's digest integrity
+	$(BIN) verify $(REPORT)
+
+demo: build ## Run a full scan/verify/diff walkthrough
