@@ -43,3 +43,7 @@ verify: build ## Verify the sample report's digest integrity
 	$(BIN) verify $(REPORT)
 
 demo: build ## Run a full scan/verify/diff walkthrough
+	@echo "== scan ==" && $(BIN) scan $(SAMPLE_WS) | head -n 20
+	@echo "== verify ==" && $(BIN) verify $(REPORT)
+
+## ---- Viewer (TypeScript) ----
