@@ -47,3 +47,7 @@ demo: build ## Run a full scan/verify/diff walkthrough
 	@echo "== verify ==" && $(BIN) verify $(REPORT)
 
 ## ---- Viewer (TypeScript) ----
+
+viewer: viewer-build viewer-test ## Build and test the viewer
+
+viewer-build: ## Compile the TypeScript viewer to viewer/dist
