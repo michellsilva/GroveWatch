@@ -51,3 +51,7 @@ demo: build ## Run a full scan/verify/diff walkthrough
 viewer: viewer-build viewer-test ## Build and test the viewer
 
 viewer-build: ## Compile the TypeScript viewer to viewer/dist
+	cd viewer && npx tsc -p tsconfig.json
+
+viewer-typecheck: ## Type-check the viewer without emitting
+	cd viewer && npx tsc -p tsconfig.json --noEmit
