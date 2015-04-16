@@ -42,3 +42,16 @@ the same thing, and if not, **what changed?**
 - [Three journeys: scan → verify → diff](#three-journeys-scan--verify--diff)
 - [CLI reference](#cli-reference)
 - [The snapshot schema, field by field](#the-snapshot-schema-field-by-field)
+- [Reading a drift report](#reading-a-drift-report)
+- [The viewer](#the-viewer)
+- [Use cases](#use-cases)
+- [Recipes](#recipes)
+- [Trust boundary & threat model](#trust-boundary--threat-model)
+- [Troubleshooting](#troubleshooting)
+- [Repository layout](#repository-layout)
+- [Testing](#testing)
+- [Limitations](#limitations)
+- [Roadmap](#roadmap)
+- [Further reading](#further-reading)
+
+---
