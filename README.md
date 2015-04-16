@@ -55,3 +55,16 @@ the same thing, and if not, **what changed?**
 - [Further reading](#further-reading)
 
 ---
+
+## What grovewatch is (and is not)
+
+**It is** a small, auditable tool that answers one question well: a `scan`
+produces a portable JSON record of *inputs*, a `verify` proves that record was
+not edited since, a `diff` explains the difference between two records in plain,
+category-grouped language, and a browser `viewer` renders any record with no
+build step or network call.
+
+**It is not** a runtime tracer. grovewatch does **not** hook syscalls, use eBPF,
+or observe processes as they execute. It reads the filesystem, resolves tool
+names on `PATH`, runs `<tool> --version`, and reads a fixed list of
+environment-variable *keys* — everything it knows, it learned by looking, never
