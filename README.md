@@ -68,3 +68,16 @@ build step or network call.
 or observe processes as they execute. It reads the filesystem, resolves tool
 names on `PATH`, runs `<tool> --version`, and reads a fixed list of
 environment-variable *keys* — everything it knows, it learned by looking, never
+by intercepting. If you need process/syscall provenance, this is the wrong tool;
+if you need reproducible-input fingerprints you can diff and verify, it is the
+right size.
+
+---
+
+## The three roots: what gets captured
+
+| Root | Recorded | Not recorded |
+|------|----------|--------------|
+| **Files** | Relative slash-path, size, octal mode, streamed SHA-256 of contents (sorted by path) | Symlinks, devices, sockets (non-portable), and ignored segments |
+| **Tools** | Logical name, resolved `PATH` location, first dotted version number, a `found` flag | Full command output — only the version string is kept |
+| **Environment** | Key, a `set` flag, and the SHA-256 of the value when set | The raw value — **never** stored, so snapshots are safe to share |
