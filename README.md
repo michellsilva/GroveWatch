@@ -81,3 +81,17 @@ right size.
 | **Files** | Relative slash-path, size, octal mode, streamed SHA-256 of contents (sorted by path) | Symlinks, devices, sockets (non-portable), and ignored segments |
 | **Tools** | Logical name, resolved `PATH` location, first dotted version number, a `found` flag | Full command output — only the version string is kept |
 | **Environment** | Key, a `set` flag, and the SHA-256 of the value when set | The raw value — **never** stored, so snapshots are safe to share |
+
+Directories are not stored as records; they are *implied* by file paths and
+reconstructed by the viewer into a tree. Defaults are deliberately small and
+overridable per scan: files are everything under root minus
+`-ignore .git,node_modules,dist,build,.grovewatch`; tools default to
+`-tools go,node,python,git`; environment keys default to
+`-env CI,GOOS,GOARCH,NODE_ENV`.
+
+---
+
+## The trunk: digests, Merkle root, determinism
+
+Three SHA-256 hashes (hex-encoded) hold the tree together.
+
