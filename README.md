@@ -134,3 +134,16 @@ noise (when, on what host) and hash only what feeds the build.
 ## Install & build
 
 Requirements: **Go ≥ 1.24** for the CLI; **Node ≥ 18** + **TypeScript ≥ 5** for
+the viewer (dev only — the shipped viewer has no runtime deps).
+
+```sh
+make build      # compile the CLI to bin/grovewatch
+make viewer     # type-check, build, and test the viewer
+make ci         # everything CI runs: vet + tests + viewer + verify sample
+```
+
+Or directly: `go build -o bin/grovewatch ./cmd/grovewatch`, and in `viewer/`,
+`npx tsc -p tsconfig.json && node --test`. Run `make help` to list all targets.
+
+---
+
