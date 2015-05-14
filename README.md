@@ -95,3 +95,16 @@ overridable per scan: files are everything under root minus
 
 Three SHA-256 hashes (hex-encoded) hold the tree together.
 
+**1 · Per-file digest** — each regular file is *streamed* through SHA-256, so a
+multi-gigabyte input still uses bounded memory: `file.digest = hex(SHA-256(contents))`.
+
+**2 · Merkle root** — files are sorted by path, then folded into one hash. Each
+field is *length-prefixed* (8-byte little-endian length, then bytes) so adjacent
+fields can never be confused (`"ab"+"c"` ≠ `"a"+"bc"`):
+
+```
+h = SHA-256()
+for f in sort_by_path(files):
+    h.update( len(f.path) || f.path );  h.update( len(f.digest) || f.digest )
+merkle_root = hex(h)
+```
