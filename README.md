@@ -121,3 +121,16 @@ view   = { schema, tool, workspace, files, tools, environment }
 digest = hex( SHA-256( json_marshal(view) ) )
 ```
 
+Every collection is pre-sorted (files by path, tools by name, env by key) and
+Go's `encoding/json` emits struct fields in declaration order, so the serialized
+view is byte-stable. **Identical inputs therefore yield an identical digest —
+across machines and across time.** That is the point of the trunk: strip the
+noise (when, on what host) and hash only what feeds the build.
+
+> Full specification: **[docs/PROVENANCE.md](docs/PROVENANCE.md)**.
+
+---
+
+## Install & build
+
+Requirements: **Go ≥ 1.24** for the CLI; **Node ≥ 18** + **TypeScript ≥ 5** for
