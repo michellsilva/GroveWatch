@@ -108,3 +108,16 @@ for f in sort_by_path(files):
     h.update( len(f.path) || f.path );  h.update( len(f.digest) || f.digest )
 merkle_root = hex(h)
 ```
+
+It changes if *any* file is added, removed, renamed, or edited — a fast "did the
+file set move at all?" check.
+
+**3 · Canonical snapshot digest** — the snapshot's identity is a SHA-256 over a
+*canonical view* that deliberately excludes the volatile `created_at` **and the
+digest field itself**:
+
+```
+view   = { schema, tool, workspace, files, tools, environment }
+digest = hex( SHA-256( json_marshal(view) ) )
+```
+
