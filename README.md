@@ -160,3 +160,16 @@ wrote examples/report/provenance.json (4 files, digest b8afd4eb68c2)
 ```
 
 ### Journey 2 — verify the seal
+
+`verify` recomputes the canonical digest and compares it to the one stored in the
+file, so a single edited byte breaks the seal (exit `4`):
+
+```console
+$ grovewatch verify examples/report/provenance.json
+OK: digest b8afd4eb68c2 matches content
+
+$ grovewatch verify tampered.json
+MISMATCH: stored b8afd4eb68c2 but content hashes to 41c9a7de0b52
+```
+
+### Journey 3 — diff the drift
