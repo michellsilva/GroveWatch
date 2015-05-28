@@ -147,3 +147,16 @@ Or directly: `go build -o bin/grovewatch ./cmd/grovewatch`, and in `viewer/`,
 
 ---
 
+## Three journeys: scan → verify → diff
+
+### Journey 1 — scan the grove
+
+Walk the bundled sample workspace and write a snapshot. The summary line goes to
+stderr; the snapshot goes to the file (or stdout without `-out`):
+
+```console
+$ grovewatch scan -out examples/report/provenance.json examples/sample-workspace
+wrote examples/report/provenance.json (4 files, digest b8afd4eb68c2)
+```
+
+### Journey 2 — verify the seal
