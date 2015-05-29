@@ -186,3 +186,16 @@ $ grovewatch diff examples/report/provenance.json new.json
 Drift detected: 1 added, 1 modified, 1 removed.
   old b8afd4eb68c2 -> new 2990f2bef8e0
   [file/removed] config.json: file removed (was 131 bytes)
+  [file/modified] main.go: content changed 2362f7c57b9e -> 96f65db9dc8d (218 -> 236 bytes)
+  [file/added] web/new.js: new file (21 bytes, digest 5828a22c8b1b)
+# exit status 3 — drift present, ideal for CI gates
+```
+
+<p align="center">
+  <img src="docs/assets/drift-terminal.svg" alt="Animated terminal panorama: scan writes a snapshot, verify confirms the digest, diff prints an added/modified/removed drift report" width="100%">
+</p>
+
+> The transcripts above mirror a real run against the bundled sample workspace on
+> this repository — the digest `b8afd4eb68c2` matches
+> [`examples/report/provenance.json`](examples/report/provenance.json).
+
