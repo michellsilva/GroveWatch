@@ -199,3 +199,16 @@ Drift detected: 1 added, 1 modified, 1 removed.
 > this repository — the digest `b8afd4eb68c2` matches
 > [`examples/report/provenance.json`](examples/report/provenance.json).
 
+---
+
+## CLI reference
+
+```
+grovewatch scan   [flags] <workspace>   Scan a workspace, emit provenance JSON
+grovewatch diff   [-json] <old> <new>   Compare two snapshots, explain drift
+grovewatch verify <snapshot.json>       Verify a snapshot's digest integrity
+grovewatch version                      Print the version
+```
+
+**`scan` flags**
+
