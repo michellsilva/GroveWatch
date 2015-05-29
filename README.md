@@ -212,3 +212,16 @@ grovewatch version                      Print the version
 
 **`scan` flags**
 
+| Flag | Default | Purpose |
+|------|---------|---------|
+| `-out` | *(stdout)* | Write the snapshot to a file; a summary goes to stderr |
+| `-ignore` | `.git,node_modules,dist,build,.grovewatch` | Path segments to skip (segment-boundary match) |
+| `-tools` | `go,node,python,git` | Tool names to resolve on `PATH` |
+| `-env` | `CI,GOOS,GOARCH,NODE_ENV` | Env keys to record (values hashed) |
+
+**`diff` flag** — `-json` emits the diff as structured JSON instead of text.
+
+**Exit codes** — `0` success / no drift · `1` I/O or parse error · `2` usage
+error · `3` `diff` found drift · `4` `verify` digest mismatch. Codes `3` and `4`
+are the ones you wire into CI gates.
+
