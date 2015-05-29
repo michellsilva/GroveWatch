@@ -173,3 +173,16 @@ MISMATCH: stored b8afd4eb68c2 but content hashes to 41c9a7de0b52
 ```
 
 ### Journey 3 — diff the drift
+
+Change some inputs, scan again, and compare against the baseline. `diff` groups
+changes by category (files → tools → env) and sorts them for a stable report:
+
+```console
+$ echo "// new feature" >> workspace/main.go
+$ rm workspace/config.json
+$ echo "console.log('new');" > workspace/web/new.js
+$ grovewatch scan -out new.json workspace
+$ grovewatch diff examples/report/provenance.json new.json
+Drift detected: 1 added, 1 modified, 1 removed.
+  old b8afd4eb68c2 -> new 2990f2bef8e0
+  [file/removed] config.json: file removed (was 131 bytes)
