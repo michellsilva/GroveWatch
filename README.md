@@ -225,3 +225,17 @@ grovewatch version                      Print the version
 error · `3` `diff` found drift · `4` `verify` digest mismatch. Codes `3` and `4`
 are the ones you wire into CI gates.
 
+---
+
+## The snapshot schema, field by field
+
+A snapshot is a single JSON object. Abridged from the bundled sample:
+
+```json
+{
+  "schema": "1.0.0",
+  "tool": { "name": "grovewatch", "version": "0.1.0" },
+  "workspace": { "root": "examples/sample-workspace", "file_count": 4,
+                 "total_bytes": 825, "merkle_root": "5be5329bef2c…247e" },
+  "files":       [ { "path": "README.md", "size": 298, "mode": "0666", "digest": "45fef498…0f95" } ],
+  "tools":       [ { "name": "go", "path": "…/go.exe", "version": "1.24.4", "found": true } ],
