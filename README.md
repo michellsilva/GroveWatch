@@ -252,3 +252,16 @@ A snapshot is a single JSON object. Abridged from the bundled sample:
 | `workspace` | object | `root`, `file_count`, `total_bytes`, `merkle_root` (hex) |
 | `files[]` | `{path, size, mode, digest}` | Sorted by path; `path` always uses `/` |
 | `tools[]` | `{name, path, version, found}` | Sorted by name |
+| `environment[]` | `{key, value_digest, set}` | Sorted by key; value never stored |
+| `digest` | hex | Canonical identity (excludes `created_at` and itself) |
+| `created_at` | RFC 3339 UTC | **Volatile** — excluded from the digest |
+
+Paths are normalised to forward slashes even on Windows, so a snapshot from one
+OS is comparable to one from another.
+
+---
+
+## Reading a drift report
+
+Every text-mode change line has one shape — `[<category>/<kind>] <name>: <detail>`
+— where **category** is `file`/`tool`/`env`, **kind** is `added` (new only),
