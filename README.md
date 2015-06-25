@@ -278,3 +278,16 @@ exiting `3` on drift.
 
 ---
 
+## The viewer
+
+The viewer is plain TypeScript compiled to ES modules — **no framework, no
+bundler, no runtime dependency.** It resolves its report in order: (1) a
+`?report=<url>` query parameter; (2) an inline
+`<script id="gw-report" type="application/json">` block (how it works straight
+from `file://`, no server needed); (3) otherwise `./provenance.json` relative to
+the page.
+
+It then renders summary stat cards, a nested **file tree** with directory size
+roll-ups, a **toolchain** table, and an **environment** table. Every
+user-controlled string is written through `textContent` — **never** `innerHTML`
+— so a hostile snapshot cannot inject markup. The pure logic (byte formatting,
