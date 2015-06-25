@@ -265,3 +265,16 @@ OS is comparable to one from another.
 
 Every text-mode change line has one shape — `[<category>/<kind>] <name>: <detail>`
 — where **category** is `file`/`tool`/`env`, **kind** is `added` (new only),
+`removed` (old only), or `modified` (in both, content differs), and **detail** is
+a human sentence (byte-size deltas for files, `version changed …` for tools,
+`value changed …` for env).
+
+A **file** counts as modified when its content digest differs (or, same content,
+its octal mode differs); a **tool** when its version differs, availability flips,
+or resolved path differs; an **env** var when its value's SHA-256 differs or the
+`set` flag flips. For machines, `grovewatch diff -json` emits the same data as a
+structured object (`old_digest`, `new_digest`, `identical`, `changes[]`), still
+exiting `3` on drift.
+
+---
+
