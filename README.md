@@ -291,3 +291,16 @@ It then renders summary stat cards, a nested **file tree** with directory size
 roll-ups, a **toolchain** table, and an **environment** table. Every
 user-controlled string is written through `textContent` — **never** `innerHTML`
 — so a hostile snapshot cannot inject markup. The pure logic (byte formatting,
+digest truncation, timestamp handling, tree building) lives in
+`viewer/src/format.ts` and is unit-tested with Node's built-in `node:test`.
+
+```sh
+make viewer-build         # compile viewer/src → viewer/dist
+node scripts/serve.mjs    # tiny stdlib static server on :8080
+# then open http://localhost:8080/viewer/public/index.html
+```
+
+The shipped `viewer/public/index.html` also opens straight from disk — it carries
+an inline copy of the sample report.
+
+---
