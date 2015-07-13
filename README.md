@@ -317,3 +317,16 @@ an inline copy of the sample report.
   without diffing whole trees by hand.
 - **Tamper alarm** — ship the snapshot with a release so anyone can `verify` the
   record was not altered.
+
+---
+
+## Recipes
+
+**Fail a pipeline on any input drift** — `diff` exits `3` on drift, so CI fails:
+
+```sh
+grovewatch scan -out current.json .
+grovewatch diff baseline.json current.json
+```
+
+**Track a specific toolchain and secret set** — secrets are stored only as
