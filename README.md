@@ -356,3 +356,16 @@ grovewatch is honest about what its guarantees mean.
 - **Tools are trusted to report their own version.** grovewatch records whatever
   `<tool> --version` prints; a malicious binary on `PATH` can lie.
 - **No network, no execution beyond version probes**, no telemetry — nothing
+  leaves the host.
+- **Integrity, not authenticity.** The digest is not a signature; to prove *who*
+  produced a snapshot, sign the file with your own key on top of grovewatch.
+
+---
+
+## Troubleshooting
+
+| Symptom | Likely cause & fix |
+|---------|--------------------|
+| `verify` prints `MISMATCH` | JSON edited after scanning, or an incompatible schema major. Re-scan to regenerate. |
+| Tool shows `found: false` | Not on the `PATH` grovewatch inherited. Check the shell/CI env, or drop it from `-tools`. |
+| `version` empty but `found: true` | The binary prints no dotted version to `--version`/`version`/`-version`. Path is still recorded. |
