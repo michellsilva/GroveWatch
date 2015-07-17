@@ -343,3 +343,16 @@ Also: **ignore generated dirs** with `-ignore .git,node_modules,dist,build,targe
 
 ---
 
+## Trust boundary & threat model
+
+grovewatch is honest about what its guarantees mean.
+
+- **The digest proves the *snapshot* is intact, not the *world*.** `verify`
+  detects edits to the JSON after it was written; it cannot tell that the
+  workspace was already compromised at scan time — garbage in, sealed garbage out.
+- **Env values are hashed, not encrypted.** A value's SHA-256 detects change and
+  confirms equality without revealing the secret, but it does not hide *which
+  keys* you track and a guessed value can be confirmed. Change-detector, not vault.
+- **Tools are trusted to report their own version.** grovewatch records whatever
+  `<tool> --version` prints; a malicious binary on `PATH` can lie.
+- **No network, no execution beyond version probes**, no telemetry — nothing
