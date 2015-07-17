@@ -330,3 +330,16 @@ grovewatch diff baseline.json current.json
 ```
 
 **Track a specific toolchain and secret set** — secrets are stored only as
+`set` + a value hash, never verbatim:
+
+```sh
+grovewatch scan -tools go,node,rustc,docker \
+  -env CI,NODE_ENV,DATABASE_URL,AWS_REGION -out snap.json .
+```
+
+Also: **ignore generated dirs** with `-ignore .git,node_modules,dist,build,target,coverage`;
+**refresh & re-verify** the sample with `make report` then `make verify`;
+**machine-readable drift** via `grovewatch diff -json baseline.json current.json > drift.json`.
+
+---
+
