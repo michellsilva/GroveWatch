@@ -369,3 +369,17 @@ grovewatch is honest about what its guarantees mean.
 | `verify` prints `MISMATCH` | JSON edited after scanning, or an incompatible schema major. Re-scan to regenerate. |
 | Tool shows `found: false` | Not on the `PATH` grovewatch inherited. Check the shell/CI env, or drop it from `-tools`. |
 | `version` empty but `found: true` | The binary prints no dotted version to `--version`/`version`/`-version`. Path is still recorded. |
+| Digest differs across machines for "identical" inputs | Something in the roots really differs — often file **mode** bits or a tool version. Run `diff` to see. |
+| `diff` exits non-zero in CI | By design: exit `3` means drift was found — a gate signal, not a crash. |
+| Viewer shows "Failed to load report" | Could not resolve a report from `?report=`, the inline block, or `./provenance.json`. Serve the folder or use the inline build. |
+
+---
+
+## Repository layout
+
+```
+grovewatch/
+├─ cmd/grovewatch/main.go     CLI entry point & subcommands
+├─ internal/provenance/       core library (stdlib only)
+│  ├─ model.go                snapshot data model + schema version
+│  ├─ scan.go                 workspace / tool / env scanner
