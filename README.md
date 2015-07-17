@@ -383,3 +383,16 @@ grovewatch/
 ├─ internal/provenance/       core library (stdlib only)
 │  ├─ model.go                snapshot data model + schema version
 │  ├─ scan.go                 workspace / tool / env scanner
+│  ├─ digest.go               SHA-256 helpers + Merkle root
+│  ├─ serialize.go            deterministic JSON, ComputeDigest, Verify
+│  ├─ diff.go                 drift comparison engine + Summary()
+│  └─ *_test.go               focused tests
+├─ viewer/                    zero-dep TypeScript viewer (src · test · public)
+├─ examples/                  sample-workspace/ + report/provenance.json
+├─ docs/                      PROVENANCE.md spec + assets/ (this guide's SVGs)
+├─ scripts/serve.mjs          tiny stdlib static server
+└─ Makefile · .github/workflows/ci.yml · LICENSE · CHANGELOG.md
+```
+
+---
+
