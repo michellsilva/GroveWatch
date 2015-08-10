@@ -24,3 +24,14 @@ type Category string
 const (
 	FileCategory Category = "file"
 	ToolCategory Category = "tool"
+	EnvCategory  Category = "env"
+)
+
+// Change is a single explained drift entry.
+type Change struct {
+	Category Category   `json:"category"`
+	Kind     ChangeKind `json:"kind"`
+	// Name is the identifier of the changed item (file path, tool name, env key).
+	Name string `json:"name"`
+	// Detail is a human-readable explanation of what changed.
+	Detail string `json:"detail"`
