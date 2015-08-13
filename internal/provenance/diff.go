@@ -35,3 +35,15 @@ type Change struct {
 	Name string `json:"name"`
 	// Detail is a human-readable explanation of what changed.
 	Detail string `json:"detail"`
+}
+
+// Diff is the result of comparing two snapshots.
+type Diff struct {
+	// OldDigest and NewDigest are the canonical identities being compared.
+	OldDigest string `json:"old_digest"`
+	NewDigest string `json:"new_digest"`
+	// Identical is true when the two snapshots share the same canonical digest.
+	Identical bool `json:"identical"`
+	// Changes is the ordered list of drift entries (files, then tools, then env).
+	Changes []Change `json:"changes"`
+}
