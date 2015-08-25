@@ -47,3 +47,14 @@ type Diff struct {
 	// Changes is the ordered list of drift entries (files, then tools, then env).
 	Changes []Change `json:"changes"`
 }
+
+// Compare computes the drift between an old and new snapshot. The result is
+// deterministic: changes are grouped by category and sorted by name.
+func Compare(oldSnap, newSnap *Snapshot) *Diff {
+	d := &Diff{
+		OldDigest: oldSnap.Digest,
+		NewDigest: newSnap.Digest,
+		Identical: oldSnap.Digest == newSnap.Digest,
+	}
+	d.Changes = append(d.Changes, diffFiles(oldSnap.Files, newSnap.Files)...)
+	d.Changes = append(d.Changes, diffTools(oldSnap.Tools, newSnap.Tools)...)
