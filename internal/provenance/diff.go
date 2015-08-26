@@ -58,3 +58,15 @@ func Compare(oldSnap, newSnap *Snapshot) *Diff {
 	}
 	d.Changes = append(d.Changes, diffFiles(oldSnap.Files, newSnap.Files)...)
 	d.Changes = append(d.Changes, diffTools(oldSnap.Tools, newSnap.Tools)...)
+	d.Changes = append(d.Changes, diffEnv(oldSnap.Environment, newSnap.Environment)...)
+	return d
+}
+
+func diffFiles(oldFiles, newFiles []FileRecord) []Change {
+	oldByPath := make(map[string]FileRecord, len(oldFiles))
+	for _, f := range oldFiles {
+		oldByPath[f.Path] = f
+	}
+	newByPath := make(map[string]FileRecord, len(newFiles))
+	for _, f := range newFiles {
+		newByPath[f.Path] = f
