@@ -115,3 +115,15 @@ func diffFiles(oldFiles, newFiles []FileRecord) []Change {
 }
 
 func diffTools(oldTools, newTools []ToolRecord) []Change {
+	oldByName := make(map[string]ToolRecord, len(oldTools))
+	for _, t := range oldTools {
+		oldByName[t.Name] = t
+	}
+	newByName := make(map[string]ToolRecord, len(newTools))
+	for _, t := range newTools {
+		newByName[t.Name] = t
+	}
+
+	var changes []Change
+	for _, nt := range newTools {
+		ot, ok := oldByName[nt.Name]
