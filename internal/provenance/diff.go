@@ -127,3 +127,14 @@ func diffTools(oldTools, newTools []ToolRecord) []Change {
 	var changes []Change
 	for _, nt := range newTools {
 		ot, ok := oldByName[nt.Name]
+		if !ok {
+			changes = append(changes, Change{
+				Category: ToolCategory,
+				Kind:     Added,
+				Name:     nt.Name,
+				Detail:   fmt.Sprintf("tool now tracked (found=%v version=%q)", nt.Found, nt.Version),
+			})
+			continue
+		}
+		switch {
+		case ot.Found && !nt.Found:
