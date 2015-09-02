@@ -138,3 +138,15 @@ func diffTools(oldTools, newTools []ToolRecord) []Change {
 		}
 		switch {
 		case ot.Found && !nt.Found:
+			changes = append(changes, Change{
+				Category: ToolCategory, Kind: Removed, Name: nt.Name,
+				Detail: "tool no longer available on PATH",
+			})
+		case !ot.Found && nt.Found:
+			changes = append(changes, Change{
+				Category: ToolCategory, Kind: Added, Name: nt.Name,
+				Detail: fmt.Sprintf("tool became available (version %q)", nt.Version),
+			})
+		case ot.Version != nt.Version:
+			changes = append(changes, Change{
+				Category: ToolCategory, Kind: Modified, Name: nt.Name,
