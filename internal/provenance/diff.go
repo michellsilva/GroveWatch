@@ -70,3 +70,14 @@ func diffFiles(oldFiles, newFiles []FileRecord) []Change {
 	newByPath := make(map[string]FileRecord, len(newFiles))
 	for _, f := range newFiles {
 		newByPath[f.Path] = f
+	}
+
+	var changes []Change
+	for _, nf := range newFiles {
+		of, ok := oldByPath[nf.Path]
+		if !ok {
+			changes = append(changes, Change{
+				Category: FileCategory,
+				Kind:     Added,
+				Name:     nf.Path,
+				Detail:   fmt.Sprintf("new file (%d bytes, digest %s)", nf.Size, short(nf.Digest)),
