@@ -173,3 +173,14 @@ func diffTools(oldTools, newTools []ToolRecord) []Change {
 
 func diffEnv(oldEnv, newEnv []EnvRecord) []Change {
 	oldByKey := make(map[string]EnvRecord, len(oldEnv))
+	for _, e := range oldEnv {
+		oldByKey[e.Key] = e
+	}
+	newByKey := make(map[string]EnvRecord, len(newEnv))
+	for _, e := range newEnv {
+		newByKey[e.Key] = e
+	}
+
+	var changes []Change
+	for _, ne := range newEnv {
+		oe, ok := oldByKey[ne.Key]
