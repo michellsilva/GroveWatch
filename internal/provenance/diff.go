@@ -184,3 +184,15 @@ func diffEnv(oldEnv, newEnv []EnvRecord) []Change {
 	var changes []Change
 	for _, ne := range newEnv {
 		oe, ok := oldByKey[ne.Key]
+		if !ok {
+			changes = append(changes, Change{
+				Category: EnvCategory, Kind: Added, Name: ne.Key,
+				Detail: fmt.Sprintf("env now tracked (set=%v)", ne.Set),
+			})
+			continue
+		}
+		switch {
+		case oe.Set && !ne.Set:
+			changes = append(changes, Change{
+				Category: EnvCategory, Kind: Removed, Name: ne.Key,
+				Detail: "env variable unset",
