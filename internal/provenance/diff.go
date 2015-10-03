@@ -196,3 +196,14 @@ func diffEnv(oldEnv, newEnv []EnvRecord) []Change {
 			changes = append(changes, Change{
 				Category: EnvCategory, Kind: Removed, Name: ne.Key,
 				Detail: "env variable unset",
+			})
+		case !oe.Set && ne.Set:
+			changes = append(changes, Change{
+				Category: EnvCategory, Kind: Added, Name: ne.Key,
+				Detail: "env variable set",
+			})
+		case oe.ValueDigest != ne.ValueDigest:
+			changes = append(changes, Change{
+				Category: EnvCategory, Kind: Modified, Name: ne.Key,
+				Detail: fmt.Sprintf("value changed %s -> %s", short(oe.ValueDigest), short(ne.ValueDigest)),
+			})
