@@ -207,3 +207,14 @@ func diffEnv(oldEnv, newEnv []EnvRecord) []Change {
 				Category: EnvCategory, Kind: Modified, Name: ne.Key,
 				Detail: fmt.Sprintf("value changed %s -> %s", short(oe.ValueDigest), short(ne.ValueDigest)),
 			})
+		}
+	}
+	for _, oe := range oldEnv {
+		if _, ok := newByKey[oe.Key]; !ok {
+			changes = append(changes, Change{
+				Category: EnvCategory, Kind: Removed, Name: oe.Key,
+				Detail: "env no longer tracked",
+			})
+		}
+	}
+	sortChanges(changes)
