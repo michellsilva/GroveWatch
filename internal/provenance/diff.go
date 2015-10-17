@@ -218,3 +218,15 @@ func diffEnv(oldEnv, newEnv []EnvRecord) []Change {
 		}
 	}
 	sortChanges(changes)
+	return changes
+}
+
+// sortChanges orders changes by name then kind for a stable, readable report.
+func sortChanges(c []Change) {
+	sort.SliceStable(c, func(i, j int) bool {
+		if c[i].Name != c[j].Name {
+			return c[i].Name < c[j].Name
+		}
+		return c[i].Kind < c[j].Kind
+	})
+}
