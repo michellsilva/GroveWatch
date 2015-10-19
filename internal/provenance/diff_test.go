@@ -10,3 +10,10 @@ func mkSnap(files []FileRecord, tools []ToolRecord, env []EnvRecord) *Snapshot {
 		Tool:        ToolInfo{Name: "grovewatch", Version: "test"},
 		Files:       files,
 		Tools:       tools,
+		Environment: env,
+	}
+	s.Workspace.MerkleRoot = merkleRoot(files)
+	s.Digest = ComputeDigest(s)
+	return s
+}
+
