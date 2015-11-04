@@ -32,3 +32,10 @@ func TestCompareIdentical(t *testing.T) {
 
 func TestCompareFileDrift(t *testing.T) {
 	oldSnap := mkSnap([]FileRecord{
+		{Path: "keep.txt", Size: 1, Mode: "0644", Digest: "k1"},
+		{Path: "changed.txt", Size: 2, Mode: "0644", Digest: "c1"},
+		{Path: "gone.txt", Size: 3, Mode: "0644", Digest: "g1"},
+	}, nil, nil)
+	newSnap := mkSnap([]FileRecord{
+		{Path: "keep.txt", Size: 1, Mode: "0644", Digest: "k1"},
+		{Path: "changed.txt", Size: 5, Mode: "0644", Digest: "c2"},
