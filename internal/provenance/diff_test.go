@@ -25,3 +25,10 @@ func TestCompareIdentical(t *testing.T) {
 	if !d.Identical {
 		t.Fatalf("expected identical, got changes: %+v", d.Changes)
 	}
+	if len(d.Changes) != 0 {
+		t.Fatalf("expected no changes, got %d", len(d.Changes))
+	}
+}
+
+func TestCompareFileDrift(t *testing.T) {
+	oldSnap := mkSnap([]FileRecord{
