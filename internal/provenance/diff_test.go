@@ -39,3 +39,10 @@ func TestCompareFileDrift(t *testing.T) {
 	newSnap := mkSnap([]FileRecord{
 		{Path: "keep.txt", Size: 1, Mode: "0644", Digest: "k1"},
 		{Path: "changed.txt", Size: 5, Mode: "0644", Digest: "c2"},
+		{Path: "added.txt", Size: 9, Mode: "0644", Digest: "a1"},
+	}, nil, nil)
+
+	d := Compare(oldSnap, newSnap)
+	if d.Identical {
+		t.Fatal("expected drift")
+	}
