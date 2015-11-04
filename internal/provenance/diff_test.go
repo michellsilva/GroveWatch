@@ -53,3 +53,10 @@ func TestCompareFileDrift(t *testing.T) {
 			t.Errorf("unexpected category %s", c.Category)
 		}
 		got[c.Name] = c.Kind
+	}
+	checks := map[string]ChangeKind{
+		"added.txt":   Added,
+		"changed.txt": Modified,
+		"gone.txt":    Removed,
+	}
+	for name, kind := range checks {
