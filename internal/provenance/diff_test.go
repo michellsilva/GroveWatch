@@ -60,3 +60,10 @@ func TestCompareFileDrift(t *testing.T) {
 		"gone.txt":    Removed,
 	}
 	for name, kind := range checks {
+		if got[name] != kind {
+			t.Errorf("%s: got %q, want %q", name, got[name], kind)
+		}
+	}
+	if _, ok := got["keep.txt"]; ok {
+		t.Error("unchanged file should not appear in diff")
+	}
