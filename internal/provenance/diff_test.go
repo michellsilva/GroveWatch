@@ -81,3 +81,10 @@ func TestCompareToolAndEnvDrift(t *testing.T) {
 	d := Compare(oldSnap, newSnap)
 
 	var sawTool, sawEnv bool
+	for _, c := range d.Changes {
+		if c.Category == ToolCategory && c.Name == "go" && c.Kind == Modified {
+			sawTool = true
+		}
+		if c.Category == EnvCategory && c.Name == "CI" && c.Kind == Modified {
+			sawEnv = true
+		}
