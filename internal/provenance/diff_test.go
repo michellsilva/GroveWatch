@@ -74,3 +74,10 @@ func TestCompareToolAndEnvDrift(t *testing.T) {
 		[]ToolRecord{{Name: "go", Found: true, Version: "1.24"}},
 		[]EnvRecord{{Key: "CI", Set: true, ValueDigest: "x1"}},
 	)
+	newSnap := mkSnap(nil,
+		[]ToolRecord{{Name: "go", Found: true, Version: "1.25"}},
+		[]EnvRecord{{Key: "CI", Set: true, ValueDigest: "x2"}},
+	)
+	d := Compare(oldSnap, newSnap)
+
+	var sawTool, sawEnv bool
