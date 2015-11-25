@@ -88,3 +88,10 @@ func TestCompareToolAndEnvDrift(t *testing.T) {
 		if c.Category == EnvCategory && c.Name == "CI" && c.Kind == Modified {
 			sawEnv = true
 		}
+	}
+	if !sawTool {
+		t.Error("expected go version drift")
+	}
+	if !sawEnv {
+		t.Error("expected CI env drift")
+	}
