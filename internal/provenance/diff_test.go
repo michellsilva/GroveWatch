@@ -95,3 +95,10 @@ func TestCompareToolAndEnvDrift(t *testing.T) {
 	if !sawEnv {
 		t.Error("expected CI env drift")
 	}
+}
+
+func TestMarshalRoundTrip(t *testing.T) {
+	snap := mkSnap(
+		[]FileRecord{{Path: "a.txt", Size: 1, Mode: "0644", Digest: "aa"}},
+		[]ToolRecord{{Name: "go", Found: true, Version: "1.24"}},
+		[]EnvRecord{{Key: "CI", Set: true, ValueDigest: "x1"}},
