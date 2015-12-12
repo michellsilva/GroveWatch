@@ -102,3 +102,10 @@ func TestMarshalRoundTrip(t *testing.T) {
 		[]FileRecord{{Path: "a.txt", Size: 1, Mode: "0644", Digest: "aa"}},
 		[]ToolRecord{{Name: "go", Found: true, Version: "1.24"}},
 		[]EnvRecord{{Key: "CI", Set: true, ValueDigest: "x1"}},
+	)
+	data, err := Marshal(snap)
+	if err != nil {
+		t.Fatalf("marshal: %v", err)
+	}
+	got, err := Unmarshal(data)
+	if err != nil {
