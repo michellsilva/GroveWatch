@@ -14,3 +14,7 @@ func hashBytes(b []byte) string {
 	return hex.EncodeToString(sum[:])
 }
 
+// hashFile returns the hex-encoded SHA-256 of a file's contents. It streams the
+// file so that arbitrarily large inputs use bounded memory.
+func hashFile(path string) (string, error) {
+	f, err := os.Open(path)
