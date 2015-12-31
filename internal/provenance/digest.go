@@ -18,3 +18,6 @@ func hashBytes(b []byte) string {
 // file so that arbitrarily large inputs use bounded memory.
 func hashFile(path string) (string, error) {
 	f, err := os.Open(path)
+	if err != nil {
+		return "", err
+	}
