@@ -35,3 +35,7 @@ func hashFile(path string) (string, error) {
 // root changes if any path, size, or content digest changes.
 func merkleRoot(files []FileRecord) string {
 	sorted := make([]FileRecord, len(files))
+	copy(sorted, files)
+	sort.Slice(sorted, func(i, j int) bool { return sorted[i].Path < sorted[j].Path })
+
+	h := sha256.New()
