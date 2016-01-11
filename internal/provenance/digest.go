@@ -32,3 +32,6 @@ func hashFile(path string) (string, error) {
 
 // merkleRoot folds a set of file records into a single hash. The records are
 // sorted by path first so the result is independent of discovery order. The
+// root changes if any path, size, or content digest changes.
+func merkleRoot(files []FileRecord) string {
+	sorted := make([]FileRecord, len(files))
