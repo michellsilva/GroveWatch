@@ -42,3 +42,7 @@ func merkleRoot(files []FileRecord) string {
 	for _, f := range sorted {
 		// Length-prefixed fields prevent ambiguity between adjacent values.
 		writeField(h, f.Path)
+		writeField(h, f.Digest)
+	}
+	return hex.EncodeToString(h.Sum(nil))
+}
