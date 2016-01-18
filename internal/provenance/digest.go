@@ -46,3 +46,6 @@ func merkleRoot(files []FileRecord) string {
 	}
 	return hex.EncodeToString(h.Sum(nil))
 }
+
+// writeField writes a length-prefixed string to h to avoid collision between
+// concatenations such as ("ab","c") and ("a","bc").
