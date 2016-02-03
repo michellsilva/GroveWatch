@@ -7,3 +7,8 @@
 package provenance
 
 import "time"
+
+// SchemaVersion identifies the on-disk provenance format. Bump on breaking
+// changes to the JSON structure so viewers can adapt.
+const SchemaVersion = "1.0.0"
+
