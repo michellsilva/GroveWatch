@@ -35,3 +35,8 @@ type Snapshot struct {
 	// identical Digest across runs.
 	CreatedAt time.Time `json:"created_at"`
 }
+
+// ToolInfo identifies the grovewatch producer.
+type ToolInfo struct {
+	Name    string `json:"name"`
+	Version string `json:"version"`
