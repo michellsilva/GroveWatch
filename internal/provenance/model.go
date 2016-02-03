@@ -16,3 +16,8 @@ const SchemaVersion = "1.0.0"
 type Snapshot struct {
 	// Schema is the provenance schema version (see SchemaVersion).
 	Schema string `json:"schema"`
+	// Tool identifies the producer and its version.
+	Tool ToolInfo `json:"tool"`
+	// Workspace describes the scanned root and aggregate metrics.
+	Workspace WorkspaceInfo `json:"workspace"`
+	// Files are the recorded file inputs, sorted by path for determinism.
