@@ -26,3 +26,8 @@ type Snapshot struct {
 	Tools []ToolRecord `json:"tools"`
 	// Environment are the recorded environment variable inputs, sorted by key.
 	Environment []EnvRecord `json:"environment"`
+	// Digest is the SHA-256 over the canonical content of this snapshot
+	// (excluding volatile fields such as CreatedAt). It is the stable
+	// identity of the provenance.
+	Digest string `json:"digest"`
+	// CreatedAt is the wall-clock time the snapshot was produced. It is
