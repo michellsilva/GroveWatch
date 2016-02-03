@@ -12,3 +12,7 @@ import "time"
 // changes to the JSON structure so viewers can adapt.
 const SchemaVersion = "1.0.0"
 
+// Snapshot is the top-level provenance record for a workspace.
+type Snapshot struct {
+	// Schema is the provenance schema version (see SchemaVersion).
+	Schema string `json:"schema"`
