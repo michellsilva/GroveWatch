@@ -40,3 +40,8 @@ type Snapshot struct {
 type ToolInfo struct {
 	Name    string `json:"name"`
 	Version string `json:"version"`
+}
+
+// WorkspaceInfo holds aggregate information about the scanned root.
+type WorkspaceInfo struct {
+	// Root is the workspace path as supplied on the command line.
