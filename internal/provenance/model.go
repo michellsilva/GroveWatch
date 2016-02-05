@@ -54,3 +54,8 @@ type WorkspaceInfo struct {
 	// changes if any file content changes.
 	MerkleRoot string `json:"merkle_root"`
 }
+
+// FileRecord is the provenance of a single file input.
+type FileRecord struct {
+	// Path is the slash-separated path relative to the workspace root.
+	Path string `json:"path"`
