@@ -45,3 +45,8 @@ type ToolInfo struct {
 // WorkspaceInfo holds aggregate information about the scanned root.
 type WorkspaceInfo struct {
 	// Root is the workspace path as supplied on the command line.
+	Root string `json:"root"`
+	// FileCount is the number of recorded files.
+	FileCount int `json:"file_count"`
+	// TotalBytes is the sum of recorded file sizes.
+	TotalBytes int64 `json:"total_bytes"`
