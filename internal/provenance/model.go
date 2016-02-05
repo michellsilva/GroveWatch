@@ -64,3 +64,8 @@ type FileRecord struct {
 	// Mode is the octal file mode string (e.g. "0644").
 	Mode string `json:"mode"`
 	// Digest is the SHA-256 of the file contents, hex-encoded.
+	Digest string `json:"digest"`
+}
+
+// ToolRecord is the provenance of an external toolchain input, e.g. a compiler
+// or interpreter discovered on PATH.
