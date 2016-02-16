@@ -74,3 +74,7 @@ type ToolRecord struct {
 	Name string `json:"name"`
 	// Path is the resolved absolute path, or empty if not found.
 	Path string `json:"path"`
+	// Version is the reported version string, or empty if unavailable.
+	Version string `json:"version"`
+	// Found indicates whether the tool was located on the host.
+	Found bool `json:"found"`
