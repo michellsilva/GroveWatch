@@ -40,3 +40,13 @@ var versionRe = regexp.MustCompile(`\d+\.\d+(?:\.\d+)?`)
 // time or filesystem traversal order.
 func Scan(cfg ScanConfig) (*Snapshot, error) {
 	if cfg.Root == "" {
+		return nil, fmt.Errorf("scan: root must not be empty")
+	}
+	nowFn := cfg.Now
+	if nowFn == nil {
+		nowFn = time.Now
+	}
+
+	root, err := filepath.Abs(cfg.Root)
+	if err != nil {
+		return nil, fmt.Errorf("scan: resolve root: %w", err)
