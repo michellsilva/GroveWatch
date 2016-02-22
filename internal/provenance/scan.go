@@ -50,3 +50,13 @@ func Scan(cfg ScanConfig) (*Snapshot, error) {
 	root, err := filepath.Abs(cfg.Root)
 	if err != nil {
 		return nil, fmt.Errorf("scan: resolve root: %w", err)
+	}
+	info, err := os.Stat(root)
+	if err != nil {
+		return nil, fmt.Errorf("scan: stat root: %w", err)
+	}
+	if !info.IsDir() {
+		return nil, fmt.Errorf("scan: root %q is not a directory", root)
+	}
+
+	files, err := scanFiles(root, cfg.Ignore)
