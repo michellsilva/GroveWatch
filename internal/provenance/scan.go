@@ -60,3 +60,14 @@ func Scan(cfg ScanConfig) (*Snapshot, error) {
 	}
 
 	files, err := scanFiles(root, cfg.Ignore)
+	if err != nil {
+		return nil, err
+	}
+	tools := scanTools(cfg.Tools)
+	env := scanEnv(cfg.EnvKeys)
+
+	var totalBytes int64
+	for _, f := range files {
+		totalBytes += f.Size
+	}
+
