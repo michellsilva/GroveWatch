@@ -49,3 +49,11 @@ func merkleRoot(files []FileRecord) string {
 
 // writeField writes a length-prefixed string to h to avoid collision between
 // concatenations such as ("ab","c") and ("a","bc").
+func writeField(h io.Writer, s string) {
+	var lenBuf [8]byte
+	n := uint64(len(s))
+	for i := 0; i < 8; i++ {
+		lenBuf[i] = byte(n >> (8 * i))
+	}
+	_, _ = h.Write(lenBuf[:])
+	_, _ = io.WriteString(h, s)
