@@ -102,3 +102,13 @@ func scanFiles(root string, ignore []string) ([]FileRecord, error) {
 			return walkErr
 		}
 		rel, err := filepath.Rel(root, path)
+		if err != nil {
+			return err
+		}
+		rel = filepath.ToSlash(rel)
+		if rel == "." {
+			return nil
+		}
+		if isIgnored(rel, ignore) {
+			if d.IsDir() {
+				return filepath.SkipDir
