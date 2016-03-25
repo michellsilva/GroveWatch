@@ -112,3 +112,14 @@ func scanFiles(root string, ignore []string) ([]FileRecord, error) {
 		if isIgnored(rel, ignore) {
 			if d.IsDir() {
 				return filepath.SkipDir
+			}
+			return nil
+		}
+		if d.IsDir() {
+			return nil
+		}
+		fi, err := d.Info()
+		if err != nil {
+			return err
+		}
+		if !fi.Mode().IsRegular() {
