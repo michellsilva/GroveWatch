@@ -133,3 +133,13 @@ func scanFiles(root string, ignore []string) ([]FileRecord, error) {
 		records = append(records, FileRecord{
 			Path:   rel,
 			Size:   fi.Size(),
+			Mode:   fmt.Sprintf("%#o", fi.Mode().Perm()),
+			Digest: digest,
+		})
+		return nil
+	})
+	if err != nil {
+		return nil, fmt.Errorf("scan files: %w", err)
+	}
+
+	sort.Slice(records, func(i, j int) bool { return records[i].Path < records[j].Path })
