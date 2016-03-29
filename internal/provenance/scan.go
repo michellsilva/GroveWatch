@@ -164,3 +164,14 @@ func isIgnored(rel string, ignore []string) bool {
 }
 
 // scanTools probes each named tool on PATH and records its resolved path and
+// reported version. Results are sorted by name.
+func scanTools(names []string) []ToolRecord {
+	records := make([]ToolRecord, 0, len(names))
+	for _, name := range names {
+		rec := ToolRecord{Name: name}
+		path, err := exec.LookPath(name)
+		if err == nil {
+			rec.Path = filepath.ToSlash(path)
+			rec.Found = true
+			rec.Version = probeVersion(name)
+		}
