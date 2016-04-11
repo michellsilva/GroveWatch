@@ -15,3 +15,9 @@ func writeTree(t *testing.T) string {
 	files := map[string]string{
 		"README.md":           "# demo\n",
 		"src/main.go":         "package main\nfunc main() {}\n",
+		"src/util/helper.go":  "package util\n",
+		"node_modules/dep.js": "// should be ignored\n",
+	}
+	for rel, content := range files {
+		full := filepath.Join(root, filepath.FromSlash(rel))
+		if err := os.MkdirAll(filepath.Dir(full), 0o755); err != nil {
