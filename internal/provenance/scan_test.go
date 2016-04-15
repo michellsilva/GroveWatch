@@ -57,3 +57,9 @@ func TestScanRecordsFilesAndIgnores(t *testing.T) {
 		}
 	}
 	// Ignored file must not appear.
+	for _, f := range snap.Files {
+		if f.Path == "node_modules/dep.js" {
+			t.Errorf("ignored file was recorded: %s", f.Path)
+		}
+	}
+}
