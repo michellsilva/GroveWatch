@@ -27,3 +27,9 @@ func writeTree(t *testing.T) string {
 			t.Fatalf("write %s: %v", rel, err)
 		}
 	}
+	return root
+}
+
+func fixedNow() time.Time {
+	return time.Date(2026, 1, 1, 0, 0, 0, 0, time.UTC)
+}
