@@ -33,3 +33,9 @@ func writeTree(t *testing.T) string {
 func fixedNow() time.Time {
 	return time.Date(2026, 1, 1, 0, 0, 0, 0, time.UTC)
 }
+
+func TestScanRecordsFilesAndIgnores(t *testing.T) {
+	root := writeTree(t)
+	snap, err := Scan(ScanConfig{
+		Root:        root,
+		ToolVersion: "test",
