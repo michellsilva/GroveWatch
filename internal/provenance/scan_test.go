@@ -39,3 +39,9 @@ func TestScanRecordsFilesAndIgnores(t *testing.T) {
 	snap, err := Scan(ScanConfig{
 		Root:        root,
 		ToolVersion: "test",
+		Ignore:      []string{"node_modules"},
+		Now:         fixedNow,
+	})
+	if err != nil {
+		t.Fatalf("scan: %v", err)
+	}
