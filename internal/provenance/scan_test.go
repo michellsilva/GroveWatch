@@ -45,3 +45,9 @@ func TestScanRecordsFilesAndIgnores(t *testing.T) {
 	if err != nil {
 		t.Fatalf("scan: %v", err)
 	}
+
+	if snap.Workspace.FileCount != 3 {
+		t.Fatalf("expected 3 files, got %d: %+v", snap.Workspace.FileCount, snap.Files)
+	}
+	// Files must be sorted by path.
+	want := []string{"README.md", "src/main.go", "src/util/helper.go"}
