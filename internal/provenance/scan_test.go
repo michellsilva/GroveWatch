@@ -63,3 +63,9 @@ func TestScanRecordsFilesAndIgnores(t *testing.T) {
 		}
 	}
 }
+
+func TestScanDeterministicDigest(t *testing.T) {
+	root := writeTree(t)
+	cfg := ScanConfig{Root: root, ToolVersion: "test", Ignore: []string{"node_modules"}, Now: fixedNow}
+
+	a, err := Scan(cfg)
