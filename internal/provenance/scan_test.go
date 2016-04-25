@@ -69,3 +69,9 @@ func TestScanDeterministicDigest(t *testing.T) {
 	cfg := ScanConfig{Root: root, ToolVersion: "test", Ignore: []string{"node_modules"}, Now: fixedNow}
 
 	a, err := Scan(cfg)
+	if err != nil {
+		t.Fatalf("scan a: %v", err)
+	}
+	b, err := Scan(cfg)
+	if err != nil {
+		t.Fatalf("scan b: %v", err)
