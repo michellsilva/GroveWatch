@@ -81,3 +81,9 @@ func TestScanDeterministicDigest(t *testing.T) {
 	}
 	if a.Workspace.MerkleRoot != b.Workspace.MerkleRoot {
 		t.Fatalf("merkle root not stable")
+	}
+	if !Verify(a) {
+		t.Fatalf("scanned snapshot failed self-verification")
+	}
+}
+
