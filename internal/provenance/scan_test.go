@@ -87,3 +87,10 @@ func TestScanDeterministicDigest(t *testing.T) {
 	}
 }
 
+func TestScanDigestExcludesTimestamp(t *testing.T) {
+	root := writeTree(t)
+	base := ScanConfig{Root: root, ToolVersion: "test", Ignore: []string{"node_modules"}}
+
+	base.Now = func() time.Time { return time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC) }
+	a, _ := Scan(base)
+	base.Now = func() time.Time { return time.Date(2030, 6, 15, 12, 0, 0, 0, time.UTC) }
