@@ -75,3 +75,9 @@ func TestScanDeterministicDigest(t *testing.T) {
 	b, err := Scan(cfg)
 	if err != nil {
 		t.Fatalf("scan b: %v", err)
+	}
+	if a.Digest != b.Digest {
+		t.Fatalf("digest not stable: %s != %s", a.Digest, b.Digest)
+	}
+	if a.Workspace.MerkleRoot != b.Workspace.MerkleRoot {
+		t.Fatalf("merkle root not stable")
