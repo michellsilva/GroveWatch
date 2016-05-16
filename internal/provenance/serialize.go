@@ -15,3 +15,7 @@ func Marshal(snap *Snapshot) ([]byte, error) {
 	enc := json.NewEncoder(&buf)
 	enc.SetEscapeHTML(false)
 	enc.SetIndent("", "  ")
+	if err := enc.Encode(snap); err != nil {
+		return nil, fmt.Errorf("marshal snapshot: %w", err)
+	}
+	return buf.Bytes(), nil
