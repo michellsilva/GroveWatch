@@ -19,3 +19,8 @@ func Marshal(snap *Snapshot) ([]byte, error) {
 		return nil, fmt.Errorf("marshal snapshot: %w", err)
 	}
 	return buf.Bytes(), nil
+}
+
+// Unmarshal parses a snapshot from JSON.
+func Unmarshal(data []byte) (*Snapshot, error) {
+	var snap Snapshot
