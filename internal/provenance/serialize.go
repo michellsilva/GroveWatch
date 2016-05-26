@@ -28,3 +28,8 @@ func Unmarshal(data []byte) (*Snapshot, error) {
 		return nil, fmt.Errorf("unmarshal snapshot: %w", err)
 	}
 	return &snap, nil
+}
+
+// Read parses a snapshot from an io.Reader.
+func Read(r io.Reader) (*Snapshot, error) {
+	data, err := io.ReadAll(r)
