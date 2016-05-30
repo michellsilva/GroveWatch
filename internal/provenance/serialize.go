@@ -42,3 +42,7 @@ func Read(r io.Reader) (*Snapshot, error) {
 // canonicalView is a projection of a snapshot that excludes volatile fields
 // (CreatedAt and the Digest itself). Hashing this view yields the stable
 // identity used as Snapshot.Digest.
+type canonicalView struct {
+	Schema      string        `json:"schema"`
+	Tool        ToolInfo      `json:"tool"`
+	Workspace   WorkspaceInfo `json:"workspace"`
