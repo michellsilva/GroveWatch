@@ -46,3 +46,8 @@ type canonicalView struct {
 	Schema      string        `json:"schema"`
 	Tool        ToolInfo      `json:"tool"`
 	Workspace   WorkspaceInfo `json:"workspace"`
+	Files       []FileRecord  `json:"files"`
+	Tools       []ToolRecord  `json:"tools"`
+	Environment []EnvRecord   `json:"environment"`
+}
+
