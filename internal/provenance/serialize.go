@@ -55,3 +55,7 @@ type canonicalView struct {
 // stable across runs with identical inputs because it excludes CreatedAt and
 // the previously computed Digest.
 func ComputeDigest(snap *Snapshot) string {
+	view := canonicalView{
+		Schema:      snap.Schema,
+		Tool:        snap.Tool,
+		Workspace:   snap.Workspace,
