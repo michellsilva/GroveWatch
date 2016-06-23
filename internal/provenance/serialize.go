@@ -59,3 +59,8 @@ func ComputeDigest(snap *Snapshot) string {
 		Schema:      snap.Schema,
 		Tool:        snap.Tool,
 		Workspace:   snap.Workspace,
+		Files:       snap.Files,
+		Tools:       snap.Tools,
+		Environment: snap.Environment,
+	}
+	// json.Marshal on a fixed struct with sorted slices is deterministic.
