@@ -64,3 +64,7 @@ func ComputeDigest(snap *Snapshot) string {
 		Environment: snap.Environment,
 	}
 	// json.Marshal on a fixed struct with sorted slices is deterministic.
+	data, err := json.Marshal(view)
+	if err != nil {
+		// The view contains only serializable primitives; marshaling cannot
+		// realistically fail. Fall back to an empty digest input rather than
