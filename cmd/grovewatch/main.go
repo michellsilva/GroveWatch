@@ -18,3 +18,16 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
+
+	"github.com/michellsilva/GroveWatch/internal/provenance"
+)
+
+// version is the tool version stamped into snapshots. Overridable at build
+// time via -ldflags "-X main.version=...".
+var version = "0.1.0"
+
+func main() {
+	if len(os.Args) < 2 {
+		usage(os.Stderr)
+		os.Exit(2)
