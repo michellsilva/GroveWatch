@@ -56,3 +56,16 @@ func main() {
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "grovewatch: %v\n", err)
 		os.Exit(1)
+	}
+}
+
+func usage(w *os.File) {
+	fmt.Fprint(w, `grovewatch — software provenance sentinel
+
+Usage:
+  grovewatch scan   [flags] <workspace>   Scan a workspace, emit provenance JSON
+  grovewatch diff   <old.json> <new.json> Compare two snapshots, explain drift
+  grovewatch verify <snapshot.json>       Verify a snapshot's digest integrity
+  grovewatch version                      Print the version
+
+Scan flags:
