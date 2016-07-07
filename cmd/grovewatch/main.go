@@ -82,3 +82,16 @@ Scan flags:
 // runScan implements the "scan" subcommand.
 func runScan(args []string) error {
 	fs := flag.NewFlagSet("scan", flag.ContinueOnError)
+	out := fs.String("out", "", "write snapshot to file instead of stdout")
+	ignore := fs.String("ignore", ".git,node_modules,dist,build,.grovewatch", "comma-separated path segments to skip")
+	tools := fs.String("tools", "go,node,python,git", "comma-separated tool names to probe")
+	env := fs.String("env", "CI,GOOS,GOARCH,NODE_ENV", "comma-separated environment variables to record")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	if fs.NArg() != 1 {
+		return fmt.Errorf("scan requires exactly one <workspace> argument")
+	}
+
+	snap, err := provenance.Scan(provenance.ScanConfig{
+		Root:        fs.Arg(0),
