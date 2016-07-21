@@ -95,3 +95,15 @@ func runScan(args []string) error {
 
 	snap, err := provenance.Scan(provenance.ScanConfig{
 		Root:        fs.Arg(0),
+		ToolVersion: version,
+		Ignore:      splitList(*ignore),
+		Tools:       splitList(*tools),
+		EnvKeys:     splitList(*env),
+	})
+	if err != nil {
+		return err
+	}
+
+	data, err := provenance.Marshal(snap)
+	if err != nil {
+		return err
