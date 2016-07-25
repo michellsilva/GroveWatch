@@ -107,3 +107,16 @@ func runScan(args []string) error {
 	data, err := provenance.Marshal(snap)
 	if err != nil {
 		return err
+	}
+	if *out == "" {
+		_, err = os.Stdout.Write(data)
+		return err
+	}
+	if err := os.WriteFile(*out, data, 0o644); err != nil {
+		return fmt.Errorf("write %s: %w", *out, err)
+	}
+	fmt.Fprintf(os.Stderr, "wrote %s (%d files, digest %s)\n", *out, snap.Workspace.FileCount, snap.Digest[:12])
+	return nil
+}
+
+// runDiff implements the "diff" subcommand.
