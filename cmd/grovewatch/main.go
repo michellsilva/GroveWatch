@@ -120,3 +120,16 @@ func runScan(args []string) error {
 }
 
 // runDiff implements the "diff" subcommand.
+func runDiff(args []string) error {
+	fs := flag.NewFlagSet("diff", flag.ContinueOnError)
+	asJSON := fs.Bool("json", false, "emit the diff as JSON instead of text")
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	if fs.NArg() != 2 {
+		return fmt.Errorf("diff requires <old.json> <new.json>")
+	}
+
+	oldSnap, err := loadSnapshot(fs.Arg(0))
+	if err != nil {
+		return err
