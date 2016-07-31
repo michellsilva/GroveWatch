@@ -133,3 +133,16 @@ func runDiff(args []string) error {
 	oldSnap, err := loadSnapshot(fs.Arg(0))
 	if err != nil {
 		return err
+	}
+	newSnap, err := loadSnapshot(fs.Arg(1))
+	if err != nil {
+		return err
+	}
+
+	d := provenance.Compare(oldSnap, newSnap)
+	if *asJSON {
+		enc := json.NewEncoder(os.Stdout)
+		enc.SetIndent("", "  ")
+		return enc.Encode(d)
+	}
+	fmt.Print(d.Summary())
