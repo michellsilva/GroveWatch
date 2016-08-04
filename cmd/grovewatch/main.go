@@ -146,3 +146,16 @@ func runDiff(args []string) error {
 		return enc.Encode(d)
 	}
 	fmt.Print(d.Summary())
+	if !d.Identical {
+		// Non-zero exit signals drift, useful in CI gates.
+		os.Exit(3)
+	}
+	return nil
+}
+
+// runVerify implements the "verify" subcommand.
+func runVerify(args []string) error {
+	fs := flag.NewFlagSet("verify", flag.ContinueOnError)
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
