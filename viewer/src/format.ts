@@ -46,3 +46,11 @@ export function buildTree(files: FileRecord[]): TreeNode {
     children: [],
   };
 
+  for (const file of files) {
+    const parts = file.path.split("/").filter((p) => p.length > 0);
+    let node = root;
+    let accum = "";
+    for (let i = 0; i < parts.length; i++) {
+      const part = parts[i];
+      accum = accum ? `${accum}/${part}` : part;
+      const isLeaf = i === parts.length - 1;
