@@ -23,3 +23,11 @@ export function formatBytes(bytes: number): string {
 export function shortDigest(digest: string, n = 12): string {
   if (!digest) return "—";
   return digest.length <= n ? digest : digest.slice(0, n);
+}
+
+/** Formats an ISO timestamp into a locale string, tolerating bad input. */
+export function formatTimestamp(iso: string): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso || "—";
+  return d.toISOString().replace("T", " ").replace(/\.\d+Z$/, " UTC");
+}
