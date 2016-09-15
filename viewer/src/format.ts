@@ -15,3 +15,11 @@ export function formatBytes(bytes: number): string {
   while (value >= 1024 && unit < units.length - 1) {
     value /= 1024;
     unit++;
+  }
+  return `${value.toFixed(1)} ${units[unit]}`;
+}
+
+/** Returns the first `n` characters of a hex digest for compact display. */
+export function shortDigest(digest: string, n = 12): string {
+  if (!digest) return "—";
+  return digest.length <= n ? digest : digest.slice(0, n);
