@@ -31,3 +31,11 @@ export function formatTimestamp(iso: string): string {
   if (Number.isNaN(d.getTime())) return iso || "—";
   return d.toISOString().replace("T", " ").replace(/\.\d+Z$/, " UTC");
 }
+
+/**
+ * Builds a nested tree from the flat, slash-separated file paths in a snapshot.
+ * Directories are synthesized as needed and children are returned sorted with
+ * directories first, then files, both alphabetically.
+ */
+export function buildTree(files: FileRecord[]): TreeNode {
+  const root: TreeNode = {
