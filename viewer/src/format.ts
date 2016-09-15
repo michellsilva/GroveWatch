@@ -39,3 +39,10 @@ export function formatTimestamp(iso: string): string {
  */
 export function buildTree(files: FileRecord[]): TreeNode {
   const root: TreeNode = {
+    name: "",
+    path: "",
+    isDir: true,
+    size: 0,
+    children: [],
+  };
+
