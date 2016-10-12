@@ -54,3 +54,11 @@ export function buildTree(files: FileRecord[]): TreeNode {
       const part = parts[i];
       accum = accum ? `${accum}/${part}` : part;
       const isLeaf = i === parts.length - 1;
+      let child = node.children.find((c) => c.name === part);
+      if (!child) {
+        child = {
+          name: part,
+          path: accum,
+          isDir: !isLeaf,
+          size: isLeaf ? file.size : 0,
+          digest: isLeaf ? file.digest : undefined,
