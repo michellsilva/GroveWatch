@@ -62,3 +62,10 @@ export function buildTree(files: FileRecord[]): TreeNode {
           isDir: !isLeaf,
           size: isLeaf ? file.size : 0,
           digest: isLeaf ? file.digest : undefined,
+          children: [],
+        };
+        node.children.push(child);
+      }
+      node = child;
+    }
+  }
