@@ -77,3 +77,11 @@ export function buildTree(files: FileRecord[]): TreeNode {
 
 function sortTree(node: TreeNode): void {
   node.children.sort((a, b) => {
+    if (a.isDir !== b.isDir) return a.isDir ? -1 : 1;
+    return a.name.localeCompare(b.name);
+  });
+  for (const child of node.children) sortTree(child);
+}
+
+/** Rolls up leaf sizes into directory nodes and returns the node's total. */
+function computeDirSizes(node: TreeNode): number {
