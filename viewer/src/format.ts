@@ -69,3 +69,11 @@ export function buildTree(files: FileRecord[]): TreeNode {
       node = child;
     }
   }
+
+  sortTree(root);
+  computeDirSizes(root);
+  return root;
+}
+
+function sortTree(node: TreeNode): void {
+  node.children.sort((a, b) => {
