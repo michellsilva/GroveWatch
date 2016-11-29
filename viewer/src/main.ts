@@ -10,3 +10,8 @@
  */
 
 import type { Snapshot } from "./types.js";
+import { render, renderError } from "./render.js";
+
+const DEFAULT_REPORT_URL = "./provenance.json";
+
+/** Reads an inline JSON report embedded in the page, if present. */
