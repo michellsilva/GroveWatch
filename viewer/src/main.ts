@@ -21,3 +21,8 @@ function readInlineReport(): Snapshot | null {
     return null;
   }
   return JSON.parse(tag.textContent) as Snapshot;
+}
+
+/** Fetches a report from a URL. */
+async function fetchReport(url: string): Promise<Snapshot> {
+  const res = await fetch(url, { cache: "no-store" });
