@@ -37,3 +37,9 @@ export async function loadSnapshot(): Promise<Snapshot> {
   const inline = readInlineReport();
   if (inline) return inline;
 
+  const params = new URLSearchParams(window.location.search);
+  const url = params.get("report") || DEFAULT_REPORT_URL;
+  return fetchReport(url);
+}
+
+/** Boots the viewer against the given mount element. */
