@@ -25,3 +25,13 @@ function el<K extends keyof HTMLElementTagNameMap>(
   if (text !== undefined) node.textContent = text;
   return node;
 }
+
+/** Renders the whole snapshot into the given container, replacing its content. */
+export function render(container: HTMLElement, snap: Snapshot): void {
+  container.replaceChildren(
+    renderHeader(snap),
+    renderStats(snap),
+    renderSection("Files", renderFileTree(snap)),
+    renderSection("Toolchain", renderTools(snap)),
+    renderSection("Environment", renderEnv(snap)),
+  );
