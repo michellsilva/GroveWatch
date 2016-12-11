@@ -48,3 +48,9 @@ export async function boot(mount: HTMLElement): Promise<void> {
     const snap = await loadSnapshot();
     render(mount, snap);
   } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    renderError(mount, message);
+  }
+}
+
+// Auto-boot when running in a browser with a #app mount point.
