@@ -56,3 +56,14 @@ function renderHeader(snap: Snapshot): HTMLElement {
 function renderStats(snap: Snapshot): HTMLElement {
   const grid = el("div", "gw-stats");
   const stats: Array<[string, string]> = [
+    ["Files", String(snap.workspace.file_count)],
+    ["Total size", formatBytes(snap.workspace.total_bytes)],
+    ["Tools found", `${countFoundTools(snap)} / ${snap.tools.length}`],
+    ["Env set", `${countSetEnv(snap)} / ${snap.environment.length}`],
+    ["Merkle root", shortDigest(snap.workspace.merkle_root)],
+  ];
+  for (const [label, value] of stats) {
+    const card = el("div", "gw-stat");
+    card.append(el("div", "gw-stat-value", value), el("div", "gw-stat-label", label));
+    grid.append(card);
+  }
