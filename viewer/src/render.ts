@@ -46,3 +46,13 @@ function renderHeader(snap: Snapshot): HTMLElement {
   const digest = el("div", "gw-digest");
   digest.append(
     el("span", "gw-label", "digest "),
+    el("code", "gw-mono", snap.digest),
+  );
+  header.append(digest);
+  header.append(el("p", "gw-time", `captured ${formatTimestamp(snap.created_at)}`));
+  return header;
+}
+
+function renderStats(snap: Snapshot): HTMLElement {
+  const grid = el("div", "gw-stats");
+  const stats: Array<[string, string]> = [
