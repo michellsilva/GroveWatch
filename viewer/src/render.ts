@@ -77,3 +77,14 @@ function renderSection(title: string, body: HTMLElement): HTMLElement {
 }
 
 function renderFileTree(snap: Snapshot): HTMLElement {
+  const tree = buildTree(snap.files);
+  const list = el("ul", "gw-tree");
+  for (const child of tree.children) {
+    list.append(renderTreeNode(child));
+  }
+  if (tree.children.length === 0) {
+    list.append(el("li", "gw-empty", "no files recorded"));
+  }
+  return list;
+}
+
