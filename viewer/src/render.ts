@@ -88,3 +88,13 @@ function renderFileTree(snap: Snapshot): HTMLElement {
   return list;
 }
 
+function renderTreeNode(node: TreeNode): HTMLElement {
+  const li = el("li", node.isDir ? "gw-node gw-dir" : "gw-node gw-file");
+  const row = el("div", "gw-row");
+  row.append(el("span", "gw-icon", node.isDir ? "▸" : "·"));
+  row.append(el("span", "gw-name", node.name));
+  row.append(el("span", "gw-size", formatBytes(node.size)));
+  if (!node.isDir && node.digest) {
+    const code = el("code", "gw-mono gw-hash", shortDigest(node.digest));
+    code.title = node.digest;
+    row.append(code);
