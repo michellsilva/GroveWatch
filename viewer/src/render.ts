@@ -67,3 +67,13 @@ function renderStats(snap: Snapshot): HTMLElement {
     card.append(el("div", "gw-stat-value", value), el("div", "gw-stat-label", label));
     grid.append(card);
   }
+  return grid;
+}
+
+function renderSection(title: string, body: HTMLElement): HTMLElement {
+  const section = el("section", "gw-section");
+  section.append(el("h2", "gw-section-title", title), body);
+  return section;
+}
+
+function renderFileTree(snap: Snapshot): HTMLElement {
