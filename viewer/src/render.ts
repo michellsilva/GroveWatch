@@ -98,3 +98,14 @@ function renderTreeNode(node: TreeNode): HTMLElement {
     const code = el("code", "gw-mono gw-hash", shortDigest(node.digest));
     code.title = node.digest;
     row.append(code);
+  }
+  li.append(row);
+  if (node.isDir && node.children.length > 0) {
+    const sub = el("ul", "gw-tree");
+    for (const child of node.children) sub.append(renderTreeNode(child));
+    li.append(sub);
+  }
+  return li;
+}
+
+function renderTools(snap: Snapshot): HTMLElement {
