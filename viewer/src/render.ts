@@ -109,3 +109,14 @@ function renderTreeNode(node: TreeNode): HTMLElement {
 }
 
 function renderTools(snap: Snapshot): HTMLElement {
+  const table = el("table", "gw-table");
+  const head = el("tr");
+  for (const h of ["Tool", "Status", "Version", "Path"]) {
+    head.append(el("th", undefined, h));
+  }
+  table.append(el("thead").appendChild(head).parentElement!);
+
+  const body = el("tbody");
+  for (const t of snap.tools) {
+    const row = el("tr");
+    row.append(el("td", "gw-mono", t.name));
