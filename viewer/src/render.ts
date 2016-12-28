@@ -130,3 +130,14 @@ function renderTools(snap: Snapshot): HTMLElement {
     body.append(row);
   }
   table.append(body);
+  return table;
+}
+
+function renderEnv(snap: Snapshot): HTMLElement {
+  const table = el("table", "gw-table");
+  const head = el("tr");
+  for (const h of ["Variable", "Status", "Value digest"]) {
+    head.append(el("th", undefined, h));
+  }
+  table.append(el("thead").appendChild(head).parentElement!);
+
