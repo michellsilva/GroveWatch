@@ -120,3 +120,13 @@ function renderTools(snap: Snapshot): HTMLElement {
   for (const t of snap.tools) {
     const row = el("tr");
     row.append(el("td", "gw-mono", t.name));
+    const status = el("td");
+    status.append(
+      el("span", t.found ? "gw-badge gw-ok" : "gw-badge gw-miss", t.found ? "found" : "missing"),
+    );
+    row.append(status);
+    row.append(el("td", "gw-mono", t.version || "—"));
+    row.append(el("td", "gw-path", t.path || "—"));
+    body.append(row);
+  }
+  table.append(body);
