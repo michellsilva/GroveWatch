@@ -3,3 +3,9 @@
  * model in internal/provenance/model.go exactly; keep them in sync when the
  * schema version changes.
  */
+
+export interface ToolInfo {
+  name: string;
+  version: string;
+}
+
