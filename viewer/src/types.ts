@@ -9,3 +9,8 @@ export interface ToolInfo {
   version: string;
 }
 
+export interface WorkspaceInfo {
+  root: string;
+  file_count: number;
+  total_bytes: number;
+  merkle_root: string;
