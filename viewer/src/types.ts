@@ -24,3 +24,9 @@ export interface FileRecord {
 }
 
 export interface ToolRecord {
+  name: string;
+  path: string;
+  version: string;
+  found: boolean;
+}
+
