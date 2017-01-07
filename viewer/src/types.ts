@@ -40,3 +40,9 @@ export interface Snapshot {
   schema: string;
   tool: ToolInfo;
   workspace: WorkspaceInfo;
+  files: FileRecord[];
+  tools: ToolRecord[];
+  environment: EnvRecord[];
+  digest: string;
+  created_at: string;
+}
