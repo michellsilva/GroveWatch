@@ -11,3 +11,9 @@ import assert from "node:assert/strict";
 
 import {
   buildTree,
+  countFoundTools,
+  countSetEnv,
+  formatBytes,
+  formatTimestamp,
+  shortDigest,
+} from "../dist/format.js";
