@@ -5,3 +5,9 @@
  * Run with: node --test (after compiling with tsc), or via `make viewer-test`.
  * These import the compiled ES modules from ../dist.
  */
+
+import test from "node:test";
+import assert from "node:assert/strict";
+
+import {
+  buildTree,
