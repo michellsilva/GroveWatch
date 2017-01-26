@@ -28,3 +28,9 @@ test("formatBytes scales units", () => {
 });
 
 test("shortDigest truncates", () => {
+  assert.equal(shortDigest("abcdef0123456789", 8), "abcdef01");
+  assert.equal(shortDigest("abc", 8), "abc");
+  assert.equal(shortDigest(""), "—");
+});
+
+test("formatTimestamp handles bad input", () => {
