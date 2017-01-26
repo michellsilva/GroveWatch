@@ -45,3 +45,9 @@ test("buildTree nests paths and sorts dirs first", () => {
     { path: "README.md", size: 50, mode: "0644", digest: "d2" },
     { path: "src/util/helper.go", size: 25, mode: "0644", digest: "d3" },
   ]);
+
+  // Directory ("src") should sort before file ("README.md").
+  assert.equal(tree.children[0].name, "src");
+  assert.equal(tree.children[0].isDir, true);
+  assert.equal(tree.children[1].name, "README.md");
+
