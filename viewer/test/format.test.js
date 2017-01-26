@@ -34,3 +34,9 @@ test("shortDigest truncates", () => {
 });
 
 test("formatTimestamp handles bad input", () => {
+  assert.equal(formatTimestamp("not-a-date"), "not-a-date");
+  const out = formatTimestamp("2026-01-02T03:04:05.678Z");
+  assert.match(out, /2026-01-02 03:04:05/);
+});
+
+test("buildTree nests paths and sorts dirs first", () => {
