@@ -40,3 +40,8 @@ test("formatTimestamp handles bad input", () => {
 });
 
 test("buildTree nests paths and sorts dirs first", () => {
+  const tree = buildTree([
+    { path: "src/main.go", size: 100, mode: "0644", digest: "d1" },
+    { path: "README.md", size: 50, mode: "0644", digest: "d2" },
+    { path: "src/util/helper.go", size: 25, mode: "0644", digest: "d3" },
+  ]);
