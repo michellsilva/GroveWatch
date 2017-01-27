@@ -57,3 +57,9 @@ test("buildTree nests paths and sorts dirs first", () => {
   // Nested directory is synthesized.
   const src = tree.children[0];
   const util = src.children.find((c) => c.name === "util");
+  assert.ok(util, "expected synthesized util directory");
+  assert.equal(util.children[0].name, "helper.go");
+});
+
+test("countFoundTools and countSetEnv", () => {
+  const snap = {
