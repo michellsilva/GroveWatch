@@ -4,3 +4,5 @@
   "description": "Zero-dependency browser viewer for grovewatch provenance snapshots.",
   "license": "MIT",
   "type": "module",
+  "private": true,
+  "scripts": {
