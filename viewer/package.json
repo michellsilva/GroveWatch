@@ -2,3 +2,5 @@
   "name": "grovewatch-viewer",
   "version": "0.1.0",
   "description": "Zero-dependency browser viewer for grovewatch provenance snapshots.",
+  "license": "MIT",
+  "type": "module",
