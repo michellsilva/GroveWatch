@@ -8,3 +8,6 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test",
+    "serve": "node ../scripts/serve.mjs"
+  },
