@@ -1,0 +1,21 @@
+:root {
+  --bg: #0f1419;
+  --panel: #1a2029;
+  --panel-2: #222b36;
+  --fg: #e6edf3;
+  --muted: #8b98a5;
+  --accent: #4ec9b0;
+  --ok: #3fb950;
+  --miss: #f85149;
+  --border: #2d3742;
+  --mono: "SFMono-Regular", "Consolas", "Liberation Mono", Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
