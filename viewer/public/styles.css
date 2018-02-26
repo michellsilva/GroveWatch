@@ -64,3 +64,25 @@ body {
   font-family: var(--mono);
   font-size: 0.85em;
 }
+
+.gw-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.gw-stat {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+}
+
+.gw-stat-value {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--mono);
+}
+
