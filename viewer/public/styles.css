@@ -42,3 +42,25 @@ body {
 }
 
 .gw-sub {
+  margin: 0.25rem 0 0.75rem;
+  color: var(--muted);
+}
+
+.gw-digest {
+  font-size: 0.85rem;
+}
+
+.gw-label {
+  color: var(--muted);
+}
+
+.gw-time {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin: 0.5rem 0 0;
+}
+
+.gw-mono {
+  font-family: var(--mono);
+  font-size: 0.85em;
+}
