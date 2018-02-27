@@ -109,3 +109,25 @@ body {
   margin: 0;
   padding-left: 1rem;
 }
+
+.gw-tree .gw-tree {
+  border-left: 1px dashed var(--border);
+}
+
+.gw-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 5px;
+}
+
+.gw-row:hover {
+  background: var(--panel);
+}
+
+.gw-icon {
+  color: var(--muted);
+  width: 1rem;
+  text-align: center;
+}
