@@ -131,3 +131,25 @@ body {
   width: 1rem;
   text-align: center;
 }
+
+.gw-dir > .gw-row .gw-name {
+  font-weight: 600;
+}
+
+.gw-name {
+  flex: 1;
+}
+
+.gw-size {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-family: var(--mono);
+}
+
+.gw-hash {
+  color: var(--accent);
+}
+
+.gw-table {
+  width: 100%;
+  border-collapse: collapse;
