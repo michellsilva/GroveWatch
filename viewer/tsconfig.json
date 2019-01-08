@@ -8,3 +8,5 @@
     "rootDir": "src",
     "declaration": true,
     "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
