@@ -1,0 +1,8 @@
+{
+  "schema": "1.0.0",
+  "tool": {
+    "name": "grovewatch",
+    "version": "0.1.0"
+  },
+  "workspace": {
+    "root": "examples/sample-workspace",
