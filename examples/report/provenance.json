@@ -6,3 +6,14 @@
   },
   "workspace": {
     "root": "examples/sample-workspace",
+    "file_count": 4,
+    "total_bytes": 825,
+    "merkle_root": "5be5329bef2ce07b2097b4ea0ced8058b0c790a75839a5de14fa22d0421b247e"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "size": 298,
+      "mode": "0666",
+      "digest": "45fef49858a50e972df2ae2b388afd268afefb45c241cadff129b10d3ef20f95"
+    },
