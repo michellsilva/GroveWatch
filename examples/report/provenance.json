@@ -17,3 +17,13 @@
       "mode": "0666",
       "digest": "45fef49858a50e972df2ae2b388afd268afefb45c241cadff129b10d3ef20f95"
     },
+    {
+      "path": "config.json",
+      "size": 131,
+      "mode": "0666",
+      "digest": "c585bb92d6640bab11946fee18c35d61476b4114bb3b723638ef287b311593c2"
+    },
+    {
+      "path": "main.go",
+      "size": 218,
+      "mode": "0666",
