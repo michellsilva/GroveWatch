@@ -27,3 +27,14 @@
       "path": "main.go",
       "size": 218,
       "mode": "0666",
+      "digest": "2362f7c57b9e99b94d066cca4fde84c40c658553fb957a905f518c4a7ad2edc0"
+    },
+    {
+      "path": "web/app.js",
+      "size": 178,
+      "mode": "0666",
+      "digest": "3dab4346e0c8c0be164a7316a23fc84aa8eafc669610081ae1697093934bcce7"
+    }
+  ],
+  "tools": [
+    {
