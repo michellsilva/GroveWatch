@@ -59,3 +59,13 @@
       "name": "python",
       "path": "C:/Users/ASHISH/AppData/Local/Programs/Python/Python311/python.exe",
       "version": "3.11.6",
+      "found": true
+    }
+  ],
+  "environment": [
+    {
+      "key": "CI",
+      "value_digest": "",
+      "set": false
+    },
+    {
