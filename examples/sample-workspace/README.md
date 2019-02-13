@@ -5,3 +5,4 @@ Markdown). It exists so `grovewatch scan` has a realistic tree to fingerprint
 in the demo and tests.
 
 Regenerate the bundled report with:
+
