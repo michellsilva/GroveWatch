@@ -2,3 +2,4 @@
 // scanning a realistic mixed-language workspace.
 package main
 
+import "fmt"
