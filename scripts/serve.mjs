@@ -25,3 +25,11 @@ const MIME = {
   ".map": "application/json; charset=utf-8",
 };
 
+const server = createServer(async (req, res) => {
+  try {
+    const url = new URL(req.url || "/", `http://${req.headers.host}`);
+    let pathname = decodeURIComponent(url.pathname);
+    if (pathname === "/") pathname = "/viewer/public/index.html";
+
+    // Prevent path traversal: resolve within ROOT only.
+    const filePath = normalize(join(ROOT, pathname));
