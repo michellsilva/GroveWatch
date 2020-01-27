@@ -33,3 +33,10 @@ const server = createServer(async (req, res) => {
 
     // Prevent path traversal: resolve within ROOT only.
     const filePath = normalize(join(ROOT, pathname));
+    if (!filePath.startsWith(ROOT)) {
+      res.writeHead(403).end("Forbidden");
+      return;
+    }
+
+    const info = await stat(filePath);
+    if (info.isDirectory()) {
