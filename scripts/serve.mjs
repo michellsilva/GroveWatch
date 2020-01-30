@@ -40,3 +40,10 @@ const server = createServer(async (req, res) => {
 
     const info = await stat(filePath);
     if (info.isDirectory()) {
+      res.writeHead(403).end("Directory listing disabled");
+      return;
+    }
+
+    const body = await readFile(filePath);
+    const type = MIME[extname(filePath).toLowerCase()] || "application/octet-stream";
+    res.writeHead(200, { "content-type": type }).end(body);
