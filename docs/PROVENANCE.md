@@ -33,3 +33,14 @@ Snapshot
 ├─ environment[] { key, value_digest, set }     sorted by key
 ├─ digest        hex               canonical snapshot identity
 └─ created_at    RFC3339 UTC       volatile; excluded from digest
+```
+
+### Files
+
+Each regular file under the workspace root (minus ignored segments) becomes one
+record:
+
+- `path` — slash-separated, relative to the root. Always uses `/` even on
+  Windows so snapshots are portable across operating systems.
+- `size` — byte length.
+- `mode` — octal permission bits, e.g. `0644`.
