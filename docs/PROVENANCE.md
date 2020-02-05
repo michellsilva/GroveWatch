@@ -22,3 +22,14 @@ The on-disk format is JSON. `schema` carries a SemVer string (currently
 ```
 Snapshot
 ├─ schema        string            format version
+├─ tool          { name, version } producer identity
+├─ workspace
+│  ├─ root         string          scanned path as supplied
+│  ├─ file_count   int
+│  ├─ total_bytes  int64
+│  └─ merkle_root  hex             hash over all file (path, digest) pairs
+├─ files[]       { path, size, mode, digest }   sorted by path
+├─ tools[]       { name, path, version, found } sorted by name
+├─ environment[] { key, value_digest, set }     sorted by key
+├─ digest        hex               canonical snapshot identity
+└─ created_at    RFC3339 UTC       volatile; excluded from digest
