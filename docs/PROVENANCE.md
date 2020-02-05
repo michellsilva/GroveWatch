@@ -55,3 +55,14 @@ implied by file paths and reconstructed by the viewer.
 
 For each requested tool name, grovewatch resolves it on `PATH`. If found, it
 runs `<tool> --version` (falling back to `version` / `-version`) and extracts
+the first dotted version number. Only the discovered path and version are
+recorded — never full command output.
+
+### Environment
+
+For each requested variable, grovewatch records whether it is `set` and, if so,
+the SHA-256 of its value. The raw value is never persisted, so a snapshot can be
+shared without leaking tokens or credentials while still detecting when a value
+changes.
+
+## Digest algorithm
