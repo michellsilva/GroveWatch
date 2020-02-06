@@ -77,3 +77,14 @@ file.digest = hex( SHA-256( file_contents ) )
 
 All files are sorted by path, then folded into a single hash. Each field is
 length-prefixed (8-byte little-endian length + bytes) so that adjacent fields
+cannot be confused (`"ab"+"c"` ≠ `"a"+"bc"`):
+
+```
+h = SHA-256()
+for f in sort_by_path(files):
+    h.update(len(f.path) || f.path)
+    h.update(len(f.digest) || f.digest)
+workspace.merkle_root = hex(h.digest())
+```
+
+The Merkle root changes if any file is added, removed, renamed, or its content
