@@ -8,3 +8,11 @@
   <defs>
     <linearGradient id="tp-bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#052018"/>
+      <stop offset="1" stop-color="#03120c"/>
+    </linearGradient>
+    <linearGradient id="tp-bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e3626"/>
+      <stop offset="1" stop-color="#0a2a1d"/>
+    </linearGradient>
+    <clipPath id="tp-screen"><rect x="24" y="60" width="832" height="330" rx="8"/></clipPath>
+  </defs>
