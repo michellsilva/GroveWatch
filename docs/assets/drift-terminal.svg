@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" role="img"
+     aria-labelledby="tp-title tp-desc" font-family="'JetBrains Mono','Cascadia Code',ui-monospace,monospace">
+  <title id="tp-title">grovewatch drift terminal panorama</title>
+  <desc id="tp-desc">A terminal panorama: a scan produces a snapshot, verify confirms
+  the digest, and diff prints an animated drift report (added, modified and removed
+  entries typed line by line) while a small canopy of leaf artifacts sits alongside.</desc>
+
+  <defs>
+    <linearGradient id="tp-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#052018"/>
