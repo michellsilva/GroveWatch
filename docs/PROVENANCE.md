@@ -88,3 +88,14 @@ workspace.merkle_root = hex(h.digest())
 ```
 
 The Merkle root changes if any file is added, removed, renamed, or its content
+changes — a single value summarizing the file set.
+
+### Canonical snapshot digest
+
+The snapshot `digest` is the SHA-256 of a **canonical view** that deliberately
+excludes the volatile `created_at` field and the `digest` field itself:
+
+```
+view = { schema, tool, workspace, files, tools, environment }
+digest = hex( SHA-256( json_marshal(view) ) )
+```
