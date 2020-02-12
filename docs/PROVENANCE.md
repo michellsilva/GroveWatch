@@ -99,3 +99,14 @@ excludes the volatile `created_at` field and the `digest` field itself:
 view = { schema, tool, workspace, files, tools, environment }
 digest = hex( SHA-256( json_marshal(view) ) )
 ```
+
+Because every collection is pre-sorted (files by path, tools by name, env by
+key) and Go's `encoding/json` emits struct fields in declaration order, the
+serialized `view` is byte-stable. Consequently the same inputs always yield the
+same `digest`, even across machines and across time.
+
+`grovewatch verify` recomputes this value and compares it to the stored
+`digest`; a mismatch means the file was edited or produced by an incompatible
+version.
+
+## Diff semantics
