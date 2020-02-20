@@ -16,3 +16,12 @@
     </linearGradient>
     <clipPath id="tp-screen"><rect x="24" y="60" width="832" height="330" rx="8"/></clipPath>
   </defs>
+
+  <rect width="880" height="420" fill="url(#tp-bg)"/>
+
+  <!-- window frame -->
+  <rect x="24" y="24" width="832" height="366" rx="12" fill="#06231a" stroke="#12513a" stroke-width="1.5"/>
+  <rect x="24" y="24" width="832" height="36" rx="12" fill="url(#tp-bar)"/>
+  <g>
+    <circle cx="48" cy="42" r="6" fill="#e5695f"/>
+    <circle cx="70" cy="42" r="6" fill="#f5c451"/>
