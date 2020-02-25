@@ -33,3 +33,12 @@
   <rect x="24" y="60" width="832" height="330" fill="#04180f"/>
 
   <g clip-path="url(#tp-screen)" font-size="14.5">
+    <!-- prompt: scan -->
+    <text x="44" y="92" fill="#5fe0a0">
+      <tspan fill="#f0c968">ranger@grove</tspan> $ grovewatch scan -out new.json workspace
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.2s" fill="freeze"/>
+    </text>
+    <text x="44" y="116" fill="#9fe8c4" opacity="0">
+      wrote new.json (5 files, digest 2990f2bef8e0)
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.9s" fill="freeze"/>
+    </text>
