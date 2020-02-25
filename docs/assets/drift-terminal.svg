@@ -25,3 +25,11 @@
   <g>
     <circle cx="48" cy="42" r="6" fill="#e5695f"/>
     <circle cx="70" cy="42" r="6" fill="#f5c451"/>
+    <circle cx="92" cy="42" r="6" fill="#3fbf7f"/>
+  </g>
+  <text x="440" y="46" text-anchor="middle" font-size="12" fill="#7fc9a3">grovewatch · provenance viewer · drift panorama</text>
+
+  <!-- screen -->
+  <rect x="24" y="60" width="832" height="330" fill="#04180f"/>
+
+  <g clip-path="url(#tp-screen)" font-size="14.5">
