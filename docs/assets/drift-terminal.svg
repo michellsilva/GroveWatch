@@ -42,3 +42,12 @@
       wrote new.json (5 files, digest 2990f2bef8e0)
       <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.9s" fill="freeze"/>
     </text>
+
+    <!-- prompt: verify -->
+    <text x="44" y="148" fill="#5fe0a0" opacity="0">
+      <tspan fill="#f0c968">ranger@grove</tspan> $ grovewatch verify examples/report/provenance.json
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1.6s" fill="freeze"/>
+    </text>
+    <text x="44" y="172" fill="#3fbf7f" opacity="0">
+      OK: digest b8afd4eb68c2 matches content
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="2.3s" fill="freeze"/>
