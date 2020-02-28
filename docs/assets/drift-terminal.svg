@@ -59,3 +59,12 @@
       <animate attributeName="opacity" values="0;1" dur="0.2s" begin="3.0s" fill="freeze"/>
     </text>
     <text x="44" y="228" fill="#f5c451" opacity="0">
+      Drift detected: 1 added, 1 modified, 1 removed.
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="3.6s" fill="freeze"/>
+    </text>
+    <text x="44" y="250" fill="#7fc9a3" opacity="0">
+      old b8afd4eb68c2 -&gt; new 2990f2bef8e0
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="4.0s" fill="freeze"/>
+    </text>
+    <text x="44" y="274" fill="#e5695f" opacity="0">
+      [file/removed] config.json: file removed (was 131 bytes)
