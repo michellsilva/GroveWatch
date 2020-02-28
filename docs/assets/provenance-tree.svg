@@ -19,3 +19,13 @@
       <stop offset="0" stop-color="#3fbf7f"/>
       <stop offset="0.6" stop-color="#1f8f5a"/>
       <stop offset="1" stop-color="#0c5f39"/>
+    </radialGradient>
+    <radialGradient id="pt-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f5c451" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#f5c451" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="pt-soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3.2"/>
+    </filter>
+  </defs>
+
