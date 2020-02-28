@@ -10,3 +10,12 @@
       <stop offset="0" stop-color="#04140d"/>
       <stop offset="0.55" stop-color="#06231a"/>
       <stop offset="1" stop-color="#03170f"/>
+    </linearGradient>
+    <linearGradient id="pt-trunk" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#6b4a25"/>
+      <stop offset="1" stop-color="#a9772f"/>
+    </linearGradient>
+    <radialGradient id="pt-canopy" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0" stop-color="#3fbf7f"/>
+      <stop offset="0.6" stop-color="#1f8f5a"/>
+      <stop offset="1" stop-color="#0c5f39"/>
