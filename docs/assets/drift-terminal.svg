@@ -76,3 +76,12 @@
     </text>
     <text x="44" y="318" fill="#3fbf7f" opacity="0">
       [file/added] web/new.js: new file (21 bytes, digest 5828a22c8b1b)
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="5.5s" fill="freeze"/>
+    </text>
+    <text x="44" y="344" fill="#8fb8a8" opacity="0">
+      # exit status 3: drift present, CI gate fails
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="6.1s" fill="freeze"/>
+    </text>
+
+    <!-- blinking cursor -->
+    <rect x="44" y="360" width="9" height="16" fill="#3fbf7f" opacity="0">
