@@ -68,3 +68,11 @@
     </text>
     <text x="44" y="274" fill="#e5695f" opacity="0">
       [file/removed] config.json: file removed (was 131 bytes)
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="4.5s" fill="freeze"/>
+    </text>
+    <text x="44" y="296" fill="#f0c968" opacity="0">
+      [file/modified] main.go: content changed 2362f7c57b9e -&gt; 96f65db9dc8d
+      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="5.0s" fill="freeze"/>
+    </text>
+    <text x="44" y="318" fill="#3fbf7f" opacity="0">
+      [file/added] web/new.js: new file (21 bytes, digest 5828a22c8b1b)
