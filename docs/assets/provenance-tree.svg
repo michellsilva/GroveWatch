@@ -29,3 +29,12 @@
     </filter>
   </defs>
 
+  <rect width="880" height="460" fill="url(#pt-sky)"/>
+
+  <!-- faint moss ground line -->
+  <path d="M0 372 H880" stroke="#0e3a26" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="440" cy="372" rx="250" ry="16" fill="#0b3120" opacity="0.55"/>
+
+  <!-- ===== ROOTS (inputs) ===== -->
+  <g stroke-linecap="round" fill="none">
+    <!-- files root -->
