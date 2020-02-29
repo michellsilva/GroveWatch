@@ -38,3 +38,13 @@
   <!-- ===== ROOTS (inputs) ===== -->
   <g stroke-linecap="round" fill="none">
     <!-- files root -->
+    <path id="pt-r1" d="M440 372 C 360 400, 250 402, 170 420" stroke="#7c5a2c" stroke-width="7" opacity="0.85"/>
+    <!-- tools root -->
+    <path id="pt-r2" d="M440 372 C 440 404, 440 412, 440 428" stroke="#7c5a2c" stroke-width="7" opacity="0.85"/>
+    <!-- env root -->
+    <path id="pt-r3" d="M440 372 C 520 400, 630 402, 712 420" stroke="#7c5a2c" stroke-width="7" opacity="0.85"/>
+  </g>
+
+  <!-- pulsing signals rising along each root into the trunk -->
+  <g fill="#f5c451">
+    <circle r="4">
