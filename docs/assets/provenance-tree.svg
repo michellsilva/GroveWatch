@@ -57,3 +57,12 @@
         path="M440 372 C 440 404, 440 412, 440 428"/>
       <animate attributeName="opacity" values="0;1;1;0" dur="3.2s" begin="0.7s" repeatCount="indefinite"/>
     </circle>
+    <circle r="4">
+      <animateMotion dur="3.2s" begin="1.4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"
+        path="M440 372 C 520 400, 630 402, 712 420"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="3.2s" begin="1.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- root labels -->
+  <g font-size="12" fill="#bfe7cf" text-anchor="middle">
