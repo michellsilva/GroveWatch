@@ -48,3 +48,12 @@
   <!-- pulsing signals rising along each root into the trunk -->
   <g fill="#f5c451">
     <circle r="4">
+      <animateMotion dur="3.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"
+        path="M440 372 C 360 400, 250 402, 170 420"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="4">
+      <animateMotion dur="3.2s" begin="0.7s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"
+        path="M440 372 C 440 404, 440 412, 440 428"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="3.2s" begin="0.7s" repeatCount="indefinite"/>
+    </circle>
