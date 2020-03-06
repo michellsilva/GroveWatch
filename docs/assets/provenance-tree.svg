@@ -66,3 +66,13 @@
 
   <!-- root labels -->
   <g font-size="12" fill="#bfe7cf" text-anchor="middle">
+    <text x="150" y="440">files → sha-256</text>
+    <text x="440" y="452">tools on PATH</text>
+    <text x="726" y="440">env → hashed</text>
+  </g>
+
+  <!-- ===== TRUNK (deterministic build) ===== -->
+  <path d="M418 372 C 424 300, 424 250, 430 200 L 450 200 C 456 250, 456 300, 462 372 Z"
+        fill="url(#pt-trunk)"/>
+  <!-- rising digest pulse in the trunk -->
+  <circle r="5" fill="#ffe08a" filter="url(#pt-soft)">
