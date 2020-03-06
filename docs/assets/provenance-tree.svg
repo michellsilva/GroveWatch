@@ -76,3 +76,12 @@
         fill="url(#pt-trunk)"/>
   <!-- rising digest pulse in the trunk -->
   <circle r="5" fill="#ffe08a" filter="url(#pt-soft)">
+    <animateMotion dur="2.4s" repeatCount="indefinite" path="M440 366 L 440 202"/>
+    <animate attributeName="opacity" values="0;1;1;0.2" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <g font-size="11" fill="#f0d9a0" text-anchor="middle" letter-spacing="1">
+    <text x="440" y="300" transform="rotate(-90 440 300)">canonical digest · merkle root</text>
+  </g>
+
+  <!-- ===== CANOPY (artifacts) ===== -->
+  <g>
