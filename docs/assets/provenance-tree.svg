@@ -95,3 +95,12 @@
       values="1 1;1.015 1.02;1 1" dur="6s" repeatCount="indefinite"/>
   </g>
 
+  <!-- golden leaf-artifacts blinking in the canopy -->
+  <g>
+    <circle cx="392" cy="132" r="6" fill="#f5c451">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="486" cy="120" r="6" fill="#f5c451">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.8s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="440" cy="176" r="6" fill="#f5c451">
