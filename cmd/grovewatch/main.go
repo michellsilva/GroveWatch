@@ -171,3 +171,32 @@ func runVerify(args []string) error {
 		return nil
 	}
 	recomputed := provenance.ComputeDigest(snap)
+	fmt.Fprintf(os.Stderr, "MISMATCH: stored %s but content hashes to %s\n", snap.Digest[:12], recomputed[:12])
+	os.Exit(4)
+	return nil
+}
+
+// loadSnapshot reads and parses a snapshot file.
+func loadSnapshot(path string) (*provenance.Snapshot, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, fmt.Errorf("open %s: %w", path, err)
+	}
+	defer f.Close()
+	snap, err := provenance.Read(f)
+	if err != nil {
+		return nil, fmt.Errorf("parse %s: %w", path, err)
+	}
+	return snap, nil
+}
+
+// splitList splits a comma-separated flag value into trimmed, non-empty parts.
+func splitList(s string) []string {
+	var out []string
+	for _, part := range strings.Split(s, ",") {
+		part = strings.TrimSpace(part)
+		if part != "" {
+			out = append(out, part)
+		}
+	}
+	return out
