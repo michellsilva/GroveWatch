@@ -2,3 +2,9 @@ name: ci
 
 on:
   push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  go:
+    name: Go (build, vet, test)
