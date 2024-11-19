@@ -33,3 +33,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install TypeScript
+        run: npm install --no-save typescript@5.8
+      - name: Type-check
+        run: npx tsc -p tsconfig.json --noEmit
+      - name: Build
+        run: npx tsc -p tsconfig.json
+      - name: Test
+        run: node --test
