@@ -1,3 +1,5 @@
 {
   "name": "sample-workspace",
   "version": "1.0.0",
+  "description": "A mixed-language workspace fingerprinted by grovewatch."
+}
