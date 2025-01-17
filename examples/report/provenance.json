@@ -69,3 +69,21 @@
       "set": false
     },
     {
+      "key": "GOARCH",
+      "value_digest": "",
+      "set": false
+    },
+    {
+      "key": "GOOS",
+      "value_digest": "",
+      "set": false
+    },
+    {
+      "key": "NODE_ENV",
+      "value_digest": "",
+      "set": false
+    }
+  ],
+  "digest": "b8afd4eb68c2b177813278ab2fcb0cada5b05cf395a9b83a9a1d39fb0fa5689d",
+  "created_at": "2026-08-31T16:17:09.0087249Z"
+}
