@@ -47,3 +47,16 @@ const server = createServer(async (req, res) => {
     const body = await readFile(filePath);
     const type = MIME[extname(filePath).toLowerCase()] || "application/octet-stream";
     res.writeHead(200, { "content-type": type }).end(body);
+  } catch (err) {
+    if (err && err.code === "ENOENT") {
+      res.writeHead(404).end("Not found");
+    } else {
+      res.writeHead(500).end("Internal error");
+    }
+  }
+});
+
+server.listen(PORT, () => {
+  console.log(`grovewatch viewer server on http://localhost:${PORT}/`);
+  console.log(`open http://localhost:${PORT}/viewer/public/index.html`);
+});
