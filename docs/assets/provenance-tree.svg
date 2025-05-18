@@ -104,3 +104,23 @@
       <animate attributeName="opacity" values="0.35;1;0.35" dur="2.8s" begin="0.6s" repeatCount="indefinite"/>
     </circle>
     <circle cx="440" cy="176" r="6" fill="#f5c451">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.8s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="352" cy="188" r="6" fill="#f5c451">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.8s" begin="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="534" cy="182" r="6" fill="#f5c451">
+      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.8s" begin="2.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <circle cx="440" cy="150" r="150" fill="url(#pt-glow)" opacity="0.5">
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="6s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- title plate -->
+  <g font-family="'Segoe UI',system-ui,sans-serif">
+    <text x="36" y="52" font-size="30" font-weight="700" fill="#eafff3">grovewatch</text>
+    <text x="36" y="78" font-size="14" fill="#8fd4ab">a provenance field guide · roots ↑ trunk ↑ canopy</text>
+    <text x="36" y="98" font-size="12" fill="#f0c968">deterministic · tamper-evident · secret-safe</text>
+  </g>
+</svg>
