@@ -85,3 +85,20 @@
 
     <!-- blinking cursor -->
     <rect x="44" y="360" width="9" height="16" fill="#3fbf7f" opacity="0">
+      <animate attributeName="opacity" values="0;0" dur="6.4s" fill="freeze"/>
+      <animate attributeName="opacity" values="1;0;1" dur="1s" begin="6.6s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- scanning sweep line -->
+    <rect x="24" y="60" width="832" height="2" fill="#3fbf7f" opacity="0.25">
+      <animate attributeName="y" values="60;388;60" dur="6.4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- small canopy of artifact-leaves top-right, echoing the tree motif -->
+  <g transform="translate(792 40)">
+    <circle r="4" fill="#f5c451"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" repeatCount="indefinite"/></circle>
+    <circle cx="-16" cy="8" r="3.4" fill="#3fbf7f"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="14" cy="9" r="3.4" fill="#3fbf7f"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" begin="1.4s" repeatCount="indefinite"/></circle>
+  </g>
+</svg>
