@@ -110,3 +110,25 @@ same `digest`, even across machines and across time.
 version.
 
 ## Diff semantics
+
+`grovewatch diff old.json new.json` compares the two snapshots and emits, per
+category (file → tool → env), a stable, name-sorted list of changes:
+
+| Kind       | Meaning                                                      |
+|------------|--------------------------------------------------------------|
+| `added`    | present in the new snapshot only                             |
+| `removed`  | present in the old snapshot only                             |
+| `modified` | present in both but content/version/mode/value digest differ |
+
+The command exits with status `3` when any drift is present, making it directly
+usable as a CI gate:
+
+```sh
+grovewatch scan -out new.json . && grovewatch diff baseline.json new.json
+```
+
+## Compatibility
+
+- **Minor** schema bumps add optional fields; older consumers ignore them.
+- **Major** schema bumps may reorder or remove fields and will change digests;
+  consumers must gate on the `schema` major version.
