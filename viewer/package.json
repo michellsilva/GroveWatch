@@ -11,3 +11,7 @@
     "test": "tsc -p tsconfig.json && node --test",
     "serve": "node ../scripts/serve.mjs"
   },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}
