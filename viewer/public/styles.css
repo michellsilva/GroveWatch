@@ -176,3 +176,43 @@ body {
 }
 
 .gw-table tr:last-child td {
+  border-bottom: none;
+}
+
+.gw-path {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  word-break: break-all;
+}
+
+.gw-badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.gw-ok {
+  background: rgba(63, 185, 80, 0.15);
+  color: var(--ok);
+}
+
+.gw-miss {
+  background: rgba(248, 81, 73, 0.15);
+  color: var(--miss);
+}
+
+.gw-empty {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.gw-error {
+  background: rgba(248, 81, 73, 0.12);
+  border: 1px solid var(--miss);
+  color: var(--fg);
+  padding: 1rem;
+  border-radius: 8px;
+}
