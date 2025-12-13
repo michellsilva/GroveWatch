@@ -46,3 +46,13 @@ export interface Snapshot {
   digest: string;
   created_at: string;
 }
+
+/** A single node in the derived file tree used for rendering. */
+export interface TreeNode {
+  name: string;
+  path: string;
+  isDir: boolean;
+  size: number;
+  digest?: string;
+  children: TreeNode[];
+}
