@@ -54,3 +54,14 @@ export async function boot(mount: HTMLElement): Promise<void> {
 }
 
 // Auto-boot when running in a browser with a #app mount point.
+if (typeof document !== "undefined") {
+  const start = () => {
+    const mount = document.getElementById("app");
+    if (mount) void boot(mount);
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+}
