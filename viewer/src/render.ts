@@ -164,3 +164,4 @@ export function renderError(container: HTMLElement, message: string): void {
   const banner = el("div", "gw-error");
   banner.append(el("strong", undefined, "Failed to load report. "), el("span", undefined, message));
   container.replaceChildren(banner);
+}
