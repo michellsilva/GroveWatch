@@ -200,3 +200,6 @@ func splitList(s string) []string {
 		}
 	}
 	return out
+}
+
+<!-- draft note 1432 -->
