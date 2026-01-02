@@ -85,3 +85,19 @@ function sortTree(node: TreeNode): void {
 
 /** Rolls up leaf sizes into directory nodes and returns the node's total. */
 function computeDirSizes(node: TreeNode): number {
+  if (!node.isDir) return node.size;
+  let total = 0;
+  for (const child of node.children) total += computeDirSizes(child);
+  node.size = total;
+  return total;
+}
+
+/** Counts how many probed tools were found on the host. */
+export function countFoundTools(snap: Snapshot): number {
+  return snap.tools.filter((t) => t.found).length;
+}
+
+/** Counts how many tracked environment variables were set. */
+export function countSetEnv(snap: Snapshot): number {
+  return snap.environment.filter((e) => e.set).length;
+}
