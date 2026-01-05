@@ -396,3 +396,54 @@ grovewatch/
 
 ---
 
+## Testing
+
+```sh
+make test          # Go tests: scan determinism, diff classification, verify
+make viewer-test   # viewer tests: byte formatting, digest truncation, tree build
+make ci            # vet + Go tests + viewer build/test + verify sample
+```
+
+The Go tests assert that identical inputs yield an identical digest, that the
+digest is independent of capture time, that drift is classified into the right
+category and kind, and that tampering is detected. The viewer tests cover byte
+formatting, digest truncation, timestamp handling, and tree construction.---
+
+## Limitations
+
+- **Inputs, not process** — grovewatch fingerprints files, tools, and env keys;
+  it does not trace what a build *does* (no syscall/eBPF instrumentation).
+- **Regular files only** — symlinks, devices, and sockets are skipped; empty
+  directories leave no trace, since directories are implied by file paths.
+- **Version parsing is heuristic** — the first dotted number from `--version` is
+  not always the semantic tool version.
+- **Whole-file granularity** — `diff` reports that a file changed and its size
+  delta, not a line-level content diff.
+- **Digest ≠ signature** — integrity is guaranteed, authenticity is not; sign the
+  snapshot separately if you need it.
+
+---
+
+## Roadmap
+
+Directional, not committed (current release `0.1.0`): optional detached signing
+(minisign / cosign) for authenticity atop integrity; a `-format` flag for compact
+single-line JSON; glob-based ignore patterns; a browser side-by-side diff of two
+snapshots; optional file-timestamp recording behind an explicit flag.
+
+---
+
+## Further reading
+
+- **[docs/PROVENANCE.md](docs/PROVENANCE.md)** — the data model and digest algorithm in full
+- **[CHANGELOG.md](CHANGELOG.md)** — release history · **[LICENSE](LICENSE)** — MIT
+- **[examples/report/provenance.json](examples/report/provenance.json)** — the verified sample snapshot
+
+---
+
+<p align="center">
+  <em>Built with the Go standard library and dependency-free TypeScript.<br>
+  Roots to canopy, nothing leaves the grove.</em>
+</p>
+
+<!-- draft note 1433 -->
