@@ -55,3 +55,15 @@ viewer-build: ## Compile the TypeScript viewer to viewer/dist
 
 viewer-typecheck: ## Type-check the viewer without emitting
 	cd viewer && npx tsc -p tsconfig.json --noEmit
+
+viewer-test: viewer-build ## Run viewer unit tests (node:test)
+	cd viewer && node --test
+
+## ---- Aggregate ----
+
+ci: vet test viewer-build viewer-test verify ## Everything CI runs
+
+clean: ## Remove build artifacts
+	rm -rf bin viewer/dist
+
+<!-- draft note 1434 -->
