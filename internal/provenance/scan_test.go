@@ -94,3 +94,20 @@ func TestScanDigestExcludesTimestamp(t *testing.T) {
 	base.Now = func() time.Time { return time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC) }
 	a, _ := Scan(base)
 	base.Now = func() time.Time { return time.Date(2030, 6, 15, 12, 0, 0, 0, time.UTC) }
+	b, _ := Scan(base)
+
+	if a.Digest != b.Digest {
+		t.Fatalf("digest changed with timestamp: %s != %s", a.Digest, b.Digest)
+	}
+	if a.CreatedAt.Equal(b.CreatedAt) {
+		t.Fatalf("expected different CreatedAt values")
+	}
+}
+
+func TestScanRejectsNonDirectory(t *testing.T) {
+	if _, err := Scan(ScanConfig{Root: "", ToolVersion: "t"}); err == nil {
+		t.Fatal("expected error for empty root")
+	}
+}
+
+<!-- draft note 1440 -->
