@@ -185,3 +185,33 @@ func scanTools(names []string) []ToolRecord {
 // the first dotted version number found, or "" if none.
 func probeVersion(name string) string {
 	for _, args := range [][]string{{"--version"}, {"version"}, {"-version"}} {
+		cmd := exec.Command(name, args...)
+		out, err := cmd.CombinedOutput()
+		if err != nil {
+			continue
+		}
+		if m := versionRe.Find(out); m != nil {
+			return string(m)
+		}
+	}
+	return ""
+}
+
+// scanEnv records the presence and value hash of each named environment
+// variable. Values are hashed to avoid persisting secrets. Results are sorted
+// by key.
+func scanEnv(keys []string) []EnvRecord {
+	records := make([]EnvRecord, 0, len(keys))
+	for _, key := range keys {
+		val, ok := os.LookupEnv(key)
+		rec := EnvRecord{Key: key, Set: ok}
+		if ok {
+			rec.ValueDigest = hashBytes([]byte(val))
+		}
+		records = append(records, rec)
+	}
+	sort.Slice(records, func(i, j int) bool { return records[i].Key < records[j].Key })
+	return records
+}
+
+<!-- draft note 1442 -->
