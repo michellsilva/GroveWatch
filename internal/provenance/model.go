@@ -78,3 +78,18 @@ type ToolRecord struct {
 	Version string `json:"version"`
 	// Found indicates whether the tool was located on the host.
 	Found bool `json:"found"`
+}
+
+// EnvRecord is the provenance of a single environment variable input. Values
+// are hashed rather than stored verbatim to avoid leaking secrets while still
+// detecting change.
+type EnvRecord struct {
+	// Key is the environment variable name.
+	Key string `json:"key"`
+	// ValueDigest is the SHA-256 of the value, hex-encoded, or empty if unset.
+	ValueDigest string `json:"value_digest"`
+	// Set indicates whether the variable was present in the environment.
+	Set bool `json:"set"`
+}
+
+<!-- draft note 1460 -->
