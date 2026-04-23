@@ -81,4 +81,4 @@ func Verify(snap *Snapshot) bool {
 	return ComputeDigest(snap) == snap.Digest
 }
 
-<!-- draft note 1451 -->
+<!-- draft note 1469 -->
