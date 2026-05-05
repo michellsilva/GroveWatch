@@ -128,4 +128,4 @@ func TestVerifyDetectsTampering(t *testing.T) {
 	}
 }
 
-<!-- draft note 1443 -->
+<!-- draft note 1473 -->
