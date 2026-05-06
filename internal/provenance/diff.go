@@ -264,4 +264,4 @@ func (d *Diff) Summary() string {
 	return b.String()
 }
 
-<!-- draft note 1468 -->
+<!-- draft note 1478 -->
