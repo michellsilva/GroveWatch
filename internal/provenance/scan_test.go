@@ -110,4 +110,4 @@ func TestScanRejectsNonDirectory(t *testing.T) {
 	}
 }
 
-<!-- draft note 1465 -->
+<!-- draft note 1480 -->
