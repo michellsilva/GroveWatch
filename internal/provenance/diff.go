@@ -262,6 +262,3 @@ func (d *Diff) Summary() string {
 		fmt.Fprintf(&b, "  [%s/%s] %s: %s\n", c.Category, c.Kind, c.Name, c.Detail)
 	}
 	return b.String()
-}
-
-<!-- draft note 1478 -->
