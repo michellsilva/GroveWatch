@@ -66,4 +66,4 @@ ci: vet test viewer-build viewer-test verify ## Everything CI runs
 clean: ## Remove build artifacts
 	rm -rf bin viewer/dist
 
-<!-- draft note 1481 -->
+<!-- draft note 1485 -->
