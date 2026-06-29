@@ -213,5 +213,3 @@ func scanEnv(keys []string) []EnvRecord {
 	sort.Slice(records, func(i, j int) bool { return records[i].Key < records[j].Key })
 	return records
 }
-
-<!-- draft note 1474 -->
