@@ -91,5 +91,3 @@ type EnvRecord struct {
 	// Set indicates whether the variable was present in the environment.
 	Set bool `json:"set"`
 }
-
-<!-- draft note 1483 -->
