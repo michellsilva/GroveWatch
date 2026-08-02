@@ -263,5 +263,3 @@ func (d *Diff) Summary() string {
 	}
 	return b.String()
 }
-
-<!-- draft note 1487 -->
