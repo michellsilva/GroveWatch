@@ -58,5 +58,3 @@ func writeField(h io.Writer, s string) {
 	_, _ = h.Write(lenBuf[:])
 	_, _ = io.WriteString(h, s)
 }
-
-<!-- draft note 1486 -->
