@@ -127,5 +127,3 @@ func TestVerifyDetectsTampering(t *testing.T) {
 		t.Fatal("verify should fail after tampering")
 	}
 }
-
-<!-- draft note 1488 -->
