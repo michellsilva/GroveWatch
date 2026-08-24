@@ -31,5 +31,3 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   `.gitignore`, and focused Go and TypeScript tests.
 
 [0.1.0]: https://github.com/michellsilva/GroveWatch/releases/tag/v0.1.0
-
-<!-- draft note 1431 -->
