@@ -109,5 +109,3 @@ func TestScanRejectsNonDirectory(t *testing.T) {
 		t.Fatal("expected error for empty root")
 	}
 }
-
-<!-- draft note 1480 -->
