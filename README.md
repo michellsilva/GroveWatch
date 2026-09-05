@@ -445,5 +445,3 @@ snapshots; optional file-timestamp recording behind an explicit flag.
   <em>Built with the Go standard library and dependency-free TypeScript.<br>
   Roots to canopy, nothing leaves the grove.</em>
 </p>
-
-<!-- draft note 1503 -->
