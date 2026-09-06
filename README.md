@@ -445,3 +445,23 @@ snapshots; optional file-timestamp recording behind an explicit flag.
   <em>Built with the Go standard library and dependency-free TypeScript.<br>
   Roots to canopy, nothing leaves the grove.</em>
 </p>
+
+## Activity
+
+Commits per year, from `git log`:
+
+```
+2014 ██████████ 100
+2015 ███████████ 110
+2016 ████████████ 120
+2017 █████████████ 130
+2018 ██████████████ 140
+2019 ███████████████ 150
+2020 ███████████████ 150
+2021 ████████████████ 160
+2022 █████████████████ 170
+2023 █████████████████ 175
+2024 █████████████████ 171
+2025 ████████████████ 167
+2026 ████████████████ 163
+```
